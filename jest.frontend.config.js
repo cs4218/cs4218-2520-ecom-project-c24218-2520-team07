@@ -23,6 +23,7 @@ export default {
   testMatch: [
     "<rootDir>/client/src/pages/**/*.test.js",
     "<rootDir>/client/src/context/**/*.test.js",
+    "<rootDir>/client/src/hooks/**/*.test.js",
   ],
 
   // jest code coverage
