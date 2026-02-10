@@ -3,3 +3,11 @@ node_modules
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+.env
+
+# Jest coverage
+/coverage/
+
+# SonarQube reports
+/sonar-project.properties
