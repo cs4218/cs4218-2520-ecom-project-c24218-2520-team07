@@ -7,27 +7,40 @@ on:
   push:
     branches:
       - main
-
+  
 jobs:
   test:
+    permissions: write-all
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
+        uses: actions/checkout@v4
+      
+      - name: Setup node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '24'
-
+          node-version: '23'
+      
       - name: Install dependencies
         run: npm install
-
+      
       - name: Install client dependencies
-        run: 
+        run: |
           cd client
           npm install
-
-      - name: Run Jest tests
-        run: npm run test:frontend
+      
+      - name: Run frontend tests
+        uses: ArtiomTr/jest-coverage-report-action@v2
+        with:
+          custom-title: Coverage report for frontend
+          working-directory: client
+          skip-step: install
+          test-script: npm run test:frontend
+      
+      # - name: Run backend tests
+      #   uses: ArtiomTr/jest-coverage-report-action@v2
+      #   with:
+      #     custom-title: Coverage report for backend
+      #     skip-step: install
+      #     test-script: npm run ci:backend
