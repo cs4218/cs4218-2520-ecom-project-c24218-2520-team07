@@ -30,17 +30,6 @@ jobs:
           cd client
           npm install
       
-      - name: Run frontend tests
-        uses: ArtiomTr/jest-coverage-report-action@v2
-        with:
-          custom-title: Coverage report for frontend
-          working-directory: client
-          skip-step: install
-          test-script: npm run test:frontend
-      
-      # - name: Run backend tests
-      #   uses: ArtiomTr/jest-coverage-report-action@v2
-      #   with:
-      #     custom-title: Coverage report for backend
-      #     skip-step: install
-      #     test-script: npm run ci:backend
+      - name: Run Jest tests
+        run: npm run test:frontend
+        
