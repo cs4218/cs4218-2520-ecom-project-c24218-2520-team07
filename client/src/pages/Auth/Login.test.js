@@ -1,3 +1,5 @@
+// Lin Bin A0258760W
+
 import React from "react";
 import { render, fireEvent, waitFor, screen } from "@testing-library/react";
 import axios from "axios";
@@ -33,7 +35,7 @@ jest.mock("../../context/search", () => ({
   useSearch: jest.fn(() => [{ keyword: "" }, jest.fn()]), // Mock useSearch hook to return null state and a mock function
 }));
 
-jest.mock("../../hooks/useCategory", () => jest.fn(() => []));
+jest.mock("../../hooks/useCategory", () => jest.fn(() => [])); 
 
 Object.defineProperty(window, "localStorage", {
   value: {

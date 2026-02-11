@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 
 export const hashPassword = async (password) => {
   try {
+    // Lin Bin A0258760W: Input validation
     if (typeof password !== "string") {
       return Promise.reject(new Error("Password must be a string"));
     }
@@ -14,6 +15,8 @@ export const hashPassword = async (password) => {
 };
 
 export const comparePassword = async (password, hashedPassword) => {
+
+  // Lin Bin A0258760W: Input validation
   if (typeof password !== "string") {
     return Promise.reject(new Error("Password must be a string"));
   }

@@ -1,3 +1,5 @@
+// Lin Bin A0258760W
+
 import { hashPassword, comparePassword } from "./authHelper";
 import bcrypt from "bcrypt";
 

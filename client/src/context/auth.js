@@ -3,6 +3,7 @@ import axios from "axios";
 
 const AuthContext = createContext();
 
+// Lin Bin A0258760W
 const getInitialAuth = () => {
   try {
     return (
@@ -22,7 +23,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const data = localStorage.getItem("auth");
     if (data) {
-      try {
+      try { // Lin Bin A0258760W: Add try-catch to handle invalid JSON
         const parseData = JSON.parse(data);
         setAuth({
           ...auth,

@@ -19,6 +19,8 @@ export const requireSignIn = async (req, res, next) => {
 export const isAdmin = async (req, res, next) => {
   try {
     const user = await userModel.findById(req.user._id);
+
+    // Lin Bin A0258760W: Check if user exists
     if (!user) {
       return res.status(401).send({
         success: false,

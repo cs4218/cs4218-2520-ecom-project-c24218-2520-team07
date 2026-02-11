@@ -1,3 +1,5 @@
+// Lin Bin A0258760W
+
 // __tests__/authController.test.js
 import {
   registerController,
