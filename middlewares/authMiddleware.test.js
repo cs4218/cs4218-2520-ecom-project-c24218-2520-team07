@@ -35,9 +35,11 @@ describe("Auth Middleware", () => {
 
     it("should log error and not call next() when token is invalid", () => {
       req.headers.authorization = "invalidToken";
+      
       const consoleSpy = jest
         .spyOn(console, "log")
         .mockImplementation(() => {});
+
       jest.spyOn(JWT, "verify").mockImplementation(() => {
         throw new Error("Invalid token");
       });
