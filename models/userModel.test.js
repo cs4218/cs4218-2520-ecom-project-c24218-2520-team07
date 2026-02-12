@@ -1,3 +1,5 @@
+// Goh En Rui Ryann A0252528A
+
 import { describe, expect, test } from "@jest/globals";
 import User from "./userModel.js";
 
