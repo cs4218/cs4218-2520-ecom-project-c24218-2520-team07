@@ -1,3 +1,5 @@
+// Lin Bin A0258760W
+
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import AdminDashboard from "./AdminDashboard";
