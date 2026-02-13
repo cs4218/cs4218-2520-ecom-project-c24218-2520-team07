@@ -1,91 +1,101 @@
+// Goh En Rui Ryann A0252528A
+
 import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, fireEvent } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import axios from "axios";
 import SearchInput from "./SearchInput";
-import { useSearch } from "../../context/search";
-import { useNavigate } from "react-router-dom";
-import "@testing-library/jest-dom";
 
-// --- ARRANGE: Mocks ---
+const mockNavigate = jest.fn();
+const mockSetValues = jest.fn();
+const mockUseSearch = jest.fn();
+
 jest.mock("axios");
-jest.mock("../../context/search");
+
 jest.mock("react-router-dom", () => ({
+  // Preserve other exports from react-router-dom
   ...jest.requireActual("react-router-dom"),
-  useNavigate: jest.fn(),
+  // Mock useNavigate
+  useNavigate: () => mockNavigate,
 }));
 
-describe("SearchInput Component", () => {
-  const setValuesMock = jest.fn();
-  const navigateMock = jest.fn();
-  const mockValues = { keyword: "", results: [] };
+jest.mock("../../context/search", () => ({
+  // Mock useSearch
+  useSearch: () => mockUseSearch(),
+}));
 
+describe("SearchInput", () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    useSearch.mockReturnValue([mockValues, setValuesMock]);
-    useNavigate.mockReturnValue(navigateMock);
   });
 
-  test("should update context value on input change", () => {
-    // --- ACT ---
+  it("renders input with value and search button", () => {
+    // Arrange
+    const values = { keyword: "phone", results: [] };
+    mockUseSearch.mockReturnValue([values, mockSetValues]);
+    const input = screen.getByPlaceholderText(/search/i);
+
+    // Act
     render(<SearchInput />);
-    const input = screen.getByPlaceholderText("Search");
-    
+
+    // Assert
+    expect(input).toHaveValue("phone");
+    expect(screen.getByRole("button", { name: /search/i })).toBeInTheDocument();
+  });
+
+  it("typing updates keyword via setValues", async () => {
+    // Arrange
+    const values = { keyword: "", results: [] };
+    mockUseSearch.mockReturnValue([values, mockSetValues]);
+
+    // Act
+    render(<SearchInput />);
+    const input = screen.getByPlaceholderText(/search/i);
     fireEvent.change(input, { target: { value: "laptop" } });
 
-    // --- ASSERT ---
-    // Verifies the onChange handler (Line 29)
-    expect(setValuesMock).toHaveBeenCalledWith({
-      ...mockValues,
+    // Assert
+    expect(mockSetValues).toHaveBeenCalledWith({
+      ...values,
       keyword: "laptop",
     });
   });
 
-  test("should fetch data and navigate on form submission", async () => {
-    // --- ARRANGE ---
-    const mockData = [{ id: 1, name: "Laptop" }];
-    const valuesWithKeyword = { keyword: "laptop", results: [] };
+  it("submitting searches, stores results, and navigates", async () => {
+    // Arrange
+    const values = { keyword: "tablet", results: [] };
+    axios.get.mockResolvedValue({ data: { products: ["p1"] } });
+    mockUseSearch.mockReturnValue([values, mockSetValues]);
     
-    useSearch.mockReturnValue([valuesWithKeyword, setValuesMock]);
-    axios.get.mockResolvedValue({ data: mockData });
-
-    // --- ACT ---
+    // Act
     render(<SearchInput />);
-    const submitButton = screen.getByRole("button", { name: /search/i });
-    
-    fireEvent.click(submitButton);
+    await userEvent.click(screen.getByRole("button", { name: /search/i }));
 
-    // --- ASSERT ---
-    // 1. Check API call (Line 12)
+    // Assert
     await waitFor(() => {
-      expect(axios.get).toHaveBeenCalledWith("/api/v1/product/search/laptop");
+      expect(axios.get).toHaveBeenCalledWith("/api/v1/product/search/tablet");
     });
-
-    // 2. Check context update (Line 15)
-    expect(setValuesMock).toHaveBeenCalledWith({
-      ...valuesWithKeyword,
-      results: mockData,
+    expect(mockSetValues).toHaveBeenCalledWith({
+      ...values,
+      results: { products: ["p1"] },
     });
-
-    // 3. Check navigation (Line 16)
-    expect(navigateMock).toHaveBeenCalledWith("/search");
+    expect(mockNavigate).toHaveBeenCalledWith("/search");
   });
 
-  test("should log error if API call fails", async () => {
-    // --- ARRANGE ---
-    const consoleSpy = jest.spyOn(console, "log").mockImplementation(() => {});
-    useSearch.mockReturnValue([{ keyword: "test", results: [] }, setValuesMock]);
-    const mockError = new Error("Network Error");
-    axios.get.mockRejectedValue(mockError);
-
-    // --- ACT ---
+  it("does not navigate when search fails", async () => {
+    // Arrange
+    const values = { keyword: "tv", results: [] };
+    axios.get.mockRejectedValue(new Error("network"));
+    mockUseSearch.mockReturnValue([values, mockSetValues]);
+    
+    // Act
     render(<SearchInput />);
-    fireEvent.submit(screen.getByRole("search"));
+    await userEvent.click(screen.getByRole("button", { name: /search/i }));
 
-    // --- ASSERT ---
-    // This covers the catch block (Line 18)
+    // Assert
     await waitFor(() => {
-      expect(consoleSpy).toHaveBeenCalledWith(mockError);
+      expect(axios.get).toHaveBeenCalledWith("/api/v1/product/search/tv");
     });
-    consoleSpy.mockRestore();
+    expect(mockSetValues).not.toHaveBeenCalled();
+    expect(mockNavigate).not.toHaveBeenCalled();
   });
 });

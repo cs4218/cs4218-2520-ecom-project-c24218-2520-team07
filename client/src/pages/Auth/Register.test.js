@@ -1,3 +1,5 @@
+// Lin Bin A0258760W
+
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import axios from "axios";
@@ -49,6 +51,7 @@ describe("Register Component", () => {
   });
 
   it("should register the user successfully", async () => {
+    // Arrange
     axios.post.mockResolvedValueOnce({ data: { success: true } });
 
     const { getByText, getByPlaceholderText } = render(
@@ -59,6 +62,7 @@ describe("Register Component", () => {
       </MemoryRouter>,
     );
 
+    // Act
     fireEvent.change(getByPlaceholderText("Enter Your Name"), {
       target: { value: "John Doe" },
     });
@@ -83,6 +87,7 @@ describe("Register Component", () => {
 
     fireEvent.click(getByText("REGISTER"));
 
+    // Assert
     await waitFor(() => expect(axios.post).toHaveBeenCalled());
     expect(toast.success).toHaveBeenCalledWith(
       "Register Successfully, please login",
@@ -90,6 +95,7 @@ describe("Register Component", () => {
   });
 
   it("should display error message on failed registration", async () => {
+    // Arrange
     axios.post.mockRejectedValueOnce({ message: "User already exists" });
 
     const { getByText, getByPlaceholderText } = render(
@@ -100,6 +106,7 @@ describe("Register Component", () => {
       </MemoryRouter>,
     );
 
+    // Act
     fireEvent.change(getByPlaceholderText("Enter Your Name"), {
       target: { value: "John Doe" },
     });
@@ -124,12 +131,13 @@ describe("Register Component", () => {
 
     fireEvent.click(getByText("REGISTER"));
 
+    // Assert
     await waitFor(() => expect(axios.post).toHaveBeenCalled());
     expect(toast.error).toHaveBeenCalledWith("Something went wrong");
   });
 
   it("should show error toast when registration API returns success: false", async () => {
-    // Mock axios.post to return success: false
+    // Arrange
     axios.post.mockResolvedValueOnce({
       data: { success: false, message: "User already exists" },
     });
@@ -140,7 +148,7 @@ describe("Register Component", () => {
       </MemoryRouter>,
     );
 
-    // Fill in all fields
+    // Act
     fireEvent.change(getByPlaceholderText("Enter Your Name"), {
       target: { value: "John Doe" },
     });
@@ -163,10 +171,10 @@ describe("Register Component", () => {
       target: { value: "Football" },
     });
 
-    // Submit form
     const button = getByText("REGISTER");
     fireEvent.click(button);
 
+    // Assert
     await waitFor(() => {
       expect(toast.error).toHaveBeenCalledWith("User already exists");
     });
