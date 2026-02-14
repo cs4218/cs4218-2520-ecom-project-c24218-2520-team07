@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1771063862450" clover="3.2.0">
-  <project timestamp="1771063862450" name="All files">
-    <metrics statements="294" coveredstatements="285" conditionals="92" coveredconditionals="91" methods="34" coveredmethods="33" elements="420" coveredelements="409" complexity="0" loc="294" ncloc="294" packages="4" files="9" classes="9"/>
+<coverage generated="1771064040097" clover="3.2.0">
+  <project timestamp="1771064040097" name="All files">
+    <metrics statements="294" coveredstatements="292" conditionals="92" coveredconditionals="91" methods="34" coveredmethods="34" elements="420" coveredelements="417" complexity="0" loc="294" ncloc="294" packages="4" files="9" classes="9"/>
     <package name="controllers">
-      <metrics statements="260" coveredstatements="253" conditionals="80" coveredconditionals="79" methods="30" coveredmethods="29"/>
+      <metrics statements="260" coveredstatements="260" conditionals="80" coveredconditionals="79" methods="30" coveredmethods="30"/>
       <file name="authController.js" path="/Users/yihfei/Documents/CS4218/cs4218-2520-ecom-project-c24218-2520-team07/controllers/authController.js">
-        <metrics statements="91" coveredstatements="84" conditionals="44" coveredconditionals="43" methods="8" coveredmethods="7"/>
+        <metrics statements="91" coveredstatements="91" conditionals="44" coveredconditionals="43" methods="8" coveredmethods="8"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="9" type="stmt"/>
         <line num="9" count="9" type="stmt"/>
@@ -90,13 +90,13 @@
         <line num="229" count="1" type="stmt"/>
         <line num="230" count="1" type="stmt"/>
         <line num="239" count="1" type="stmt"/>
-        <line num="240" count="0" type="stmt"/>
-        <line num="241" count="0" type="stmt"/>
-        <line num="242" count="0" type="stmt"/>
-        <line num="243" count="0" type="stmt"/>
-        <line num="248" count="0" type="stmt"/>
-        <line num="250" count="0" type="stmt"/>
-        <line num="251" count="0" type="stmt"/>
+        <line num="240" count="2" type="stmt"/>
+        <line num="241" count="2" type="stmt"/>
+        <line num="242" count="2" type="stmt"/>
+        <line num="243" count="2" type="stmt"/>
+        <line num="248" count="1" type="stmt"/>
+        <line num="250" count="1" type="stmt"/>
+        <line num="251" count="1" type="stmt"/>
       </file>
       <file name="categoryController.js" path="/Users/yihfei/Documents/CS4218/cs4218-2520-ecom-project-c24218-2520-team07/controllers/categoryController.js">
         <metrics statements="39" coveredstatements="39" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>

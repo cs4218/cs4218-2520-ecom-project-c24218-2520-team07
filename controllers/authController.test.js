@@ -9,6 +9,7 @@ import {
   updateProfileController,
   getOrdersController,
   getAllOrdersController,
+  orderStatusController,
 } from "../controllers/authController.js";
 import userModel from "../models/userModel.js";
 import orderModel from "../models/orderModel.js";
@@ -558,6 +559,54 @@ describe("Auth Controller", () => {
         expect.objectContaining({
           success: false,
           message: "Error While Getting Orders",
+        })
+      );
+    });
+  });
+
+  describe("orderStatusController", () => {
+    it("should update order status successfully", async () => {
+      // Arrange
+      req.params = { orderId: "order123" };
+      req.body = { status: "Shipped" };
+      
+      const mockUpdatedOrder = { 
+        _id: "order123", 
+        status: "Shipped",
+        buyer: "user123" 
+      };
+
+      orderModel.findByIdAndUpdate.mockResolvedValue(mockUpdatedOrder);
+
+      // Act
+      await orderStatusController(req, res);
+
+      // Assert
+      expect(orderModel.findByIdAndUpdate).toHaveBeenCalledWith(
+        "order123",
+        { status: "Shipped" },
+        { new: true }
+      );
+      expect(res.json).toHaveBeenCalledWith(mockUpdatedOrder);
+    });
+
+    it("should handle errors and return 500 status", async () => {
+      // Arrange
+      req.params = { orderId: "order123" };
+      req.body = { status: "Shipped" };
+      
+      const error = new Error("Update failed");
+      orderModel.findByIdAndUpdate.mockRejectedValue(error);
+
+      // Act
+      await orderStatusController(req, res);
+
+      // Assert
+      expect(res.status).toHaveBeenCalledWith(500);
+      expect(res.send).toHaveBeenCalledWith(
+        expect.objectContaining({
+          success: false,
+          message: "Error While Updating Order",
         })
       );
     });
