@@ -1,5 +1,4 @@
 // Lin Bin A0258760W
-// Goh En Rui Ryann A0252528A
 
 import React from "react";
 import {
