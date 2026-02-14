@@ -359,6 +359,7 @@ describe("Auth Controller", () => {
     });
   });
 
+  // Lim Yih Fei A0256993J
   describe("updateProfileController", () => {
     it("should return error if password is too short", async () => {
       // Arrange
