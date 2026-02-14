@@ -1,3 +1,5 @@
+// Lin Bin A0258760W
+
 import React, { useState } from "react";
 import Layout from "../../components/Layout";
 import axios from "axios";
@@ -39,7 +41,6 @@ const ForgotPassword = () => {
         toast.error(res.data.message || "Something went wrong");
       }
     } catch (error) {
-      console.log(error);
       toast.error("Something went wrong");
     } finally {
       setLoading(false);
