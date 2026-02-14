@@ -32,32 +32,41 @@ describe("AdminDashboard Component", () => {
   });
 
   it("renders the Layout and AdminMenu components", () => {
+    // Arrange
     const { useAuth } = require("../../context/auth");
     useAuth.mockReturnValue([mockAuth]);
 
+    // Act
     render(<AdminDashboard />);
 
+    // Assert
     expect(screen.getByTestId("mock-layout")).toBeInTheDocument();
     expect(screen.getByTestId("mock-admin-menu")).toBeInTheDocument();
   });
 
   it("displays the admin information correctly", () => {
+    // Arrange
     const { useAuth } = require("../../context/auth");
     useAuth.mockReturnValue([mockAuth]);
 
+    // Act
     render(<AdminDashboard />);
 
+    // Assert
     expect(screen.getByText(`Admin Name : ${mockAuth.user.name}`)).toBeInTheDocument();
     expect(screen.getByText(`Admin Email : ${mockAuth.user.email}`)).toBeInTheDocument();
     expect(screen.getByText(`Admin Contact : ${mockAuth.user.phone}`)).toBeInTheDocument();
   });
 
   it("renders correctly with empty auth (no user)", () => {
+    // Arrange
     const { useAuth } = require("../../context/auth");
     useAuth.mockReturnValue([{}]); // auth is empty
 
+    // Act
     render(<AdminDashboard />);
 
+    // Assert
     expect(screen.getByText("Admin Name :")).toBeInTheDocument();
     expect(screen.getByText("Admin Email :")).toBeInTheDocument();
     expect(screen.getByText("Admin Contact :")).toBeInTheDocument();
