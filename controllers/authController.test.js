@@ -8,6 +8,7 @@ import {
   testController,
   updateProfileController,
   getOrdersController,
+  getAllOrdersController,
 } from "../controllers/authController.js";
 import userModel from "../models/userModel.js";
 import orderModel from "../models/orderModel.js";
@@ -503,6 +504,53 @@ describe("Auth Controller", () => {
 
       // Act
       await getOrdersController(req, res);
+
+      // Assert
+      expect(res.status).toHaveBeenCalledWith(500);
+      expect(res.send).toHaveBeenCalledWith(
+        expect.objectContaining({
+          success: false,
+          message: "Error While Getting Orders",
+        })
+      );
+    });
+  });
+
+  describe("getAllOrdersController", () => {
+    it("should fetch all orders with correct population and sorting", async () => {
+      // Arrange
+      const mockOrders = [
+        { _id: "o1", products: ["p1"], buyer: "user1", createdAt: new Date() },
+      ];
+
+      // Mongoose Chain: find() -> populate() -> populate() -> sort()
+      // Working backwards for the mock:
+      const mockSort = { sort: jest.fn().mockResolvedValue(mockOrders) };
+      const mockPopulate2 = { populate: jest.fn().mockReturnValue(mockSort) };
+      const mockPopulate1 = { populate: jest.fn().mockReturnValue(mockPopulate2) };
+      
+      orderModel.find = jest.fn().mockReturnValue(mockPopulate1);
+
+      // Act
+      await getAllOrdersController(req, res);
+
+      // Assert
+      expect(orderModel.find).toHaveBeenCalledWith({});
+      expect(mockPopulate1.populate).toHaveBeenCalledWith("products", "-photo");
+      expect(mockPopulate2.populate).toHaveBeenCalledWith("buyer", "name");
+      expect(mockSort.sort).toHaveBeenCalledWith({ createdAt: "-1" });
+      expect(res.json).toHaveBeenCalledWith(mockOrders);
+    });
+
+    it("should handle errors and return 500 status", async () => {
+      // Arrange
+      const error = new Error("Database error");
+      orderModel.find = jest.fn().mockImplementation(() => {
+        throw error;
+      });
+
+      // Act
+      await getAllOrdersController(req, res);
 
       // Assert
       expect(res.status).toHaveBeenCalledWith(500);
