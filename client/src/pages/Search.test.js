@@ -5,7 +5,7 @@ import Search from "./Search";
 import { useSearch } from "../context/search";
 import "@testing-library/jest-dom";
 
-// --- ARRANGE: Mocks ---
+// Mocking dependencies
 jest.mock("../context/search");
 jest.mock("./../components/Layout", () => ({ children, title }) => (
   <div data-testid="layout" data-title={title}>{children}</div>
@@ -19,7 +19,7 @@ describe("Search Page Component", () => {
   });
 
   test("should render product cards and handle truncated descriptions", () => {
-    // --- ARRANGE ---
+    // Arrange
     const mockResults = [
       {
         _id: "1",
@@ -36,10 +36,10 @@ describe("Search Page Component", () => {
     ];
     useSearch.mockReturnValue([{ results: mockResults }, setValuesMock]);
 
-    // --- ACT ---
+    // Act
     render(<Search />);
 
-    // --- ASSERT ---
+    // Assert
     
     // 1. Verify Headings (using regex to ignore case/typos)
     expect(screen.getByText(/search resuts/i)).toBeInTheDocument();
@@ -70,13 +70,13 @@ describe("Search Page Component", () => {
   });
 
   test("should display 'No Products Found' when results are empty", () => {
-    // --- ARRANGE ---
+    // Arrange
     useSearch.mockReturnValue([{ results: [] }, setValuesMock]);
 
-    // --- ACT ---
+    // Act
     render(<Search />);
 
-    // --- ASSERT ---
+    // Assert
     expect(screen.getByText(/no products found/i)).toBeInTheDocument();
   });
 });

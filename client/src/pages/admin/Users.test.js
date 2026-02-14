@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import Users from "./Users";
 import "@testing-library/jest-dom";
 
-// --- ARRANGE: Mocks ---
+// Mocking dependencies
 jest.mock("./../../components/Layout", () => ({ children, title }) => (
   <div data-testid="layout" title={title}>
     {children}
@@ -17,12 +17,12 @@ jest.mock("../../components/AdminMenu", () => () => (
 
 describe("Users Component", () => {
   test("should render Layout, AdminMenu, and Page Heading", () => {
-    // --- ACT ---
+    // Act
     render(<Users />);
 
-    // --- ASSERT ---
+    // Assert
     
-    // Verify Layout via title prop (checking the "Contract")
+    // Verify Layout via title prop
     const layout = screen.getByTestId("layout");
     expect(layout).toHaveAttribute("title", "Dashboard - All Users");
 
@@ -34,14 +34,14 @@ describe("Users Component", () => {
   });
 
   test("should have correct accessible roles and hierarchy", () => {
-    // --- ACT ---
+    // Act
     render(<Users />);
 
-    // --- ASSERT ---
+    // Assert
     const menu = screen.getByTestId("admin-menu");
     const mainContent = screen.getByRole("heading", { name: "All Users" });
 
-    // We verify they both exist in the document. 
+    // verify they both exist in the document. 
     expect(menu).toBeInTheDocument();
     expect(mainContent).toBeInTheDocument();
   });

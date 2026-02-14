@@ -79,7 +79,7 @@ describe("Orders Component", () => {
   });
 
   test("should display 'Failed' when payment is unsuccessful", async () => {
-    // --- ARRANGE ---
+    // Arrange
     const mockUnsuccessfulOrder = [
       {
         _id: "2",
@@ -101,10 +101,10 @@ describe("Orders Component", () => {
     useAuth.mockReturnValue([{ token: "fake-token" }, jest.fn()]);
     axios.get.mockResolvedValue({ data: mockUnsuccessfulOrder });
 
-    // --- ACT ---
+    // Act
     render(<Orders />);
 
-    // --- ASSERT ---
+    // Assert
     const paymentStatus = await screen.findByText("Failed");
     
     expect(paymentStatus).toBeInTheDocument();

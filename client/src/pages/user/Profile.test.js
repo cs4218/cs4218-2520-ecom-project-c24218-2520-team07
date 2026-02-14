@@ -51,7 +51,7 @@ describe("Profile Component", () => {
   });
 
 test("should update profile successfully and update local storage", async () => {
-    // --- ARRANGE ---
+    // Arrange
     const updatedUser = { ...mockUser, name: "Jane Doe" };
     axios.put.mockResolvedValue({
       data: { updatedUser },
@@ -61,11 +61,11 @@ test("should update profile successfully and update local storage", async () => 
     const nameInput = screen.getByPlaceholderText("Enter Your Name");
     const updateButton = screen.getByText("UPDATE");
 
-    // --- ACT ---
+    // Act
     fireEvent.change(nameInput, { target: { value: "Jane Doe" } });
     fireEvent.click(updateButton);
 
-    // --- ASSERT ---
+    // Assert
     
     // 1. Wait specifically for the primary side effect (the API call)
     await waitFor(() => {
@@ -131,7 +131,7 @@ test("should update profile successfully and update local storage", async () => 
   });
 
   test("should update all input fields correctly on user change", () => {
-    // ARRANGE 
+    // Arrange
     // Covers remaining statements and functions
     render(<Profile />);
     
@@ -141,7 +141,7 @@ test("should update profile successfully and update local storage", async () => 
     const phoneInput = screen.getByPlaceholderText("Enter Your Phone");
     const addressInput = screen.getByPlaceholderText("Enter Your Address");
 
-    // --- ACT ---
+    // Act
     // This executes the anonymous functions/setters for every line in your JSX
     fireEvent.change(nameInput, { target: { value: "Jane Doe" } });
     fireEvent.change(emailInput, { target: { value: "jane@example.com" } });
@@ -149,7 +149,7 @@ test("should update profile successfully and update local storage", async () => 
     fireEvent.change(phoneInput, { target: { value: "987654321" } });
     fireEvent.change(addressInput, { target: { value: "456 New Ave" } });
 
-    // --- ASSERT ---
+    // Assert
     expect(nameInput.value).toBe("Jane Doe");
     expect(emailInput.value).toBe("jane@example.com");
     expect(passwordInput.value).toBe("newPassword123");
