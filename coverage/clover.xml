@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1771064040097" clover="3.2.0">
-  <project timestamp="1771064040097" name="All files">
-    <metrics statements="294" coveredstatements="292" conditionals="92" coveredconditionals="91" methods="34" coveredmethods="34" elements="420" coveredelements="417" complexity="0" loc="294" ncloc="294" packages="4" files="9" classes="9"/>
+<coverage generated="1771065151371" clover="3.2.0">
+  <project timestamp="1771065151371" name="All files">
+    <metrics statements="294" coveredstatements="292" conditionals="92" coveredconditionals="92" methods="34" coveredmethods="34" elements="420" coveredelements="418" complexity="0" loc="294" ncloc="294" packages="4" files="9" classes="9"/>
     <package name="controllers">
-      <metrics statements="260" coveredstatements="260" conditionals="80" coveredconditionals="79" methods="30" coveredmethods="30"/>
+      <metrics statements="260" coveredstatements="260" conditionals="80" coveredconditionals="80" methods="30" coveredmethods="30"/>
       <file name="authController.js" path="/Users/yihfei/Documents/CS4218/cs4218-2520-ecom-project-c24218-2520-team07/controllers/authController.js">
-        <metrics statements="91" coveredstatements="91" conditionals="44" coveredconditionals="43" methods="8" coveredmethods="8"/>
+        <metrics statements="91" coveredstatements="91" conditionals="44" coveredconditionals="44" methods="8" coveredmethods="8"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="9" type="stmt"/>
         <line num="9" count="9" type="stmt"/>
@@ -67,14 +67,14 @@
         <line num="162" count="1" type="stmt"/>
         <line num="163" count="1" type="stmt"/>
         <line num="168" count="1" type="stmt"/>
-        <line num="169" count="4" type="stmt"/>
-        <line num="170" count="4" type="stmt"/>
-        <line num="171" count="4" type="stmt"/>
-        <line num="173" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="169" count="5" type="stmt"/>
+        <line num="170" count="5" type="stmt"/>
+        <line num="171" count="5" type="stmt"/>
+        <line num="173" count="4" type="cond" truecount="4" falsecount="0"/>
         <line num="174" count="1" type="stmt"/>
-        <line num="176" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="177" count="2" type="stmt"/>
-        <line num="187" count="2" type="stmt"/>
+        <line num="176" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="177" count="3" type="stmt"/>
+        <line num="187" count="3" type="stmt"/>
         <line num="193" count="1" type="stmt"/>
         <line num="194" count="1" type="stmt"/>
         <line num="203" count="1" type="stmt"/>

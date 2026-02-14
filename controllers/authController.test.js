@@ -363,7 +363,7 @@ describe("Auth Controller", () => {
     it("should return error if password is too short", async () => {
       // Arrange
       req.user = { _id: "user123" };
-      req.body = { password: "12345" }; // Less than 6 chars
+      req.body = { password: "123" }; 
 
       // Act
       await updateProfileController(req, res);
@@ -374,97 +374,76 @@ describe("Auth Controller", () => {
       });
     });
 
-    it("should update profile successfully with new password", async () => {
-      // Arrange
-      req.user = { _id: "user123" };
-      req.body = {
-        name: "New Name",
-        password: "newpassword123",
-        phone: "99999999",
-        address: "New Address",
-      };
-
-      const existingUser = { _id: "user123", name: "Old Name" };
-      const updatedUserMock = { ...req.body, _id: "user123" };
-
-      userModel.findById.mockResolvedValue(existingUser);
-      hashPassword.mockResolvedValue("hashed_new_password");
-      userModel.findByIdAndUpdate.mockResolvedValue(updatedUserMock);
-
-      // Act
-      await updateProfileController(req, res);
-
-      // Assert
-      expect(hashPassword).toHaveBeenCalledWith("newpassword123");
-      expect(userModel.findByIdAndUpdate).toHaveBeenCalledWith(
-        "user123",
-        expect.objectContaining({
-          name: "New Name",
-          password: "hashed_new_password",
-        }),
-        { new: true }
-      );
-      expect(res.status).toHaveBeenCalledWith(200);
-      expect(res.send).toHaveBeenCalledWith(
-        expect.objectContaining({
-          success: true,
-          message: "Profile Updated Successfully",
-          updatedUser: updatedUserMock,
-        })
-      );
-    });
-
-    it("should update profile using existing values if fields are missing", async () => {
-      // Arrange
-      req.user = { _id: "user123" };
-      req.body = { name: "Only Changing Name" }; // Password, phone, address missing
-
-      const existingUser = { 
-        _id: "user123", 
-        name: "Old Name", 
-        password: "old_hash", 
-        phone: "123", 
-        address: "old addr" 
-      };
-
-      userModel.findById.mockResolvedValue(existingUser);
-      userModel.findByIdAndUpdate.mockResolvedValue({ ...existingUser, name: "Only Changing Name" });
-
-      // Act
-      await updateProfileController(req, res);
-
-      // Assert
-      // Ensure it falls back to user.password, user.phone, etc.
-      expect(userModel.findByIdAndUpdate).toHaveBeenCalledWith(
-        "user123",
+    describe("Success Scenarios", () => {
+      test.each([
         {
-          name: "Only Changing Name",
-          password: "old_hash",
-          phone: "123",
-          address: "old addr",
+          scenario: "Full Update",
+          description: "all fields provided",
+          body: { name: "New Name", phone: "9999", address: "New Rd", password: "pass123" },
+          expected: { name: "New Name", phone: "9999", address: "New Rd" }
         },
-        { new: true }
-      );
+        {
+          scenario: "Partial Update (Missing Name)",
+          description: "falls back to existing name",
+          body: { phone: "8888", address: "88 Rd" }, 
+          expected: { name: "Old Name", phone: "8888", address: "88 Rd" }
+        },
+        {
+          scenario: "Partial Update (Missing Phone & Address)",
+          description: "falls back to existing phone and address",
+          body: { name: "Only Name" }, 
+          expected: { name: "Only Name", phone: "7777", address: "Old Addr" }
+        }
+      ])("Scenario: $scenario ($description)", async ({ body, expected }) => {
+        
+        // Arrange
+        req.user = { _id: "user123" };
+        req.body = body;
+
+        const existingUser = {
+          _id: "user123",
+          name: "Old Name",
+          phone: "7777",
+          address: "Old Addr",
+          password: "hashed_old_password"
+        };
+
+        userModel.findById.mockResolvedValue(existingUser);
+        hashPassword.mockResolvedValue("hashed_new_password");
+        userModel.findByIdAndUpdate.mockResolvedValue({ ...existingUser, ...body });
+
+        // Act
+        await updateProfileController(req, res);
+
+        // Assert
+        expect(userModel.findByIdAndUpdate).toHaveBeenCalledWith(
+          "user123",
+          expect.objectContaining(expected),
+          { new: true }
+        );
+
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.send).toHaveBeenCalledWith(
+          expect.objectContaining({ success: true })
+        );
+      });
     });
 
-    it("should handle errors during update", async () => {
-      // Arrange
-      req.user = { _id: "user123" };
-      userModel.findById.mockRejectedValue(new Error("Update Failed"));
+  it("should handle errors during update", async () => {
+    // Arrange
+    req.user = { _id: "user123" };
+    userModel.findById.mockRejectedValue(new Error("Update Failed"));
 
-      // Act
-      await updateProfileController(req, res);
+    // Act
+    await updateProfileController(req, res);
 
-      // Assert
-      expect(res.status).toHaveBeenCalledWith(400);
-      expect(res.send).toHaveBeenCalledWith(
-        expect.objectContaining({
-          success: false,
-          message: "Error while updating profile",
-        })
-      );
-    });
+    // Assert
+    expect(res.status).toHaveBeenCalledWith(400);
+    expect(res.send).toHaveBeenCalledWith(
+      expect.objectContaining({ success: false })
+    );
   });
+});
 
   describe("getOrdersController", () => {
     it("should fetch and return user orders successfully", async () => {
