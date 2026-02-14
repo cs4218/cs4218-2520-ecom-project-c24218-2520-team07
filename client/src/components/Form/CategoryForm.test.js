@@ -14,10 +14,6 @@ describe("CategoryForm", () => {
   });
 
   it("renders input and submit button", () => {
-    // Arrange
-    const input = screen.getByPlaceholderText(/enter new category/i);
-    const submitButton = screen.getByRole("button", { name: /submit/i });
-    
     // Act
     render(
       <CategoryForm
@@ -26,16 +22,15 @@ describe("CategoryForm", () => {
         setValue={mockSetter}
       />
     );
-    
+
     // Assert
+    const input = screen.getByPlaceholderText(/enter new category/i);
+    const submitButton = screen.getByRole("button", { name: /submit/i });
     expect(input).toHaveValue(mockCategory);
     expect(submitButton).toBeInTheDocument();
   });
 
   it("updates value on typing", async () => {
-    // Arrange
-    const input = screen.getByPlaceholderText(/enter new category/i);
-    
     // Act
     render(
       <CategoryForm
@@ -45,6 +40,7 @@ describe("CategoryForm", () => {
       />
     );
 
+    const input = screen.getByPlaceholderText(/enter new category/i);
     fireEvent.change(input, { target: { value: mockNewCategory } });
 
     // Assert
@@ -52,9 +48,6 @@ describe("CategoryForm", () => {
   });
 
   it("calls handleSubmit on form submit", async () => {
-    // Arrange
-    const submitButton = screen.getByRole("button", { name: /submit/i });
-    
     // Act
     render(
       <CategoryForm
@@ -63,6 +56,8 @@ describe("CategoryForm", () => {
         setValue={mockSetter}
       />
     );
+
+    const submitButton = screen.getByRole("button", { name: /submit/i });
     await userEvent.click(submitButton);
 
     // Assert
