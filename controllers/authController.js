@@ -186,14 +186,14 @@ export const updateProfileController = async (req, res) => {
     );
     res.status(200).send({
       success: true,
-      message: "Profile Updated SUccessfully",
+      message: "Profile Updated Successfully",
       updatedUser,
     });
   } catch (error) {
     console.log(error);
     res.status(400).send({
       success: false,
-      message: "Error WHile Update profile",
+      message: "Error while updating profile",
       error,
     });
   }
@@ -211,7 +211,7 @@ export const getOrdersController = async (req, res) => {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error WHile Geting Orders",
+      message: "Error While Getting Orders",
       error,
     });
   }

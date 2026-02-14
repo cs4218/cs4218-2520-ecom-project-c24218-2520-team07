@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1771059855751" clover="3.2.0">
-  <project timestamp="1771059855751" name="All files">
-    <metrics statements="294" coveredstatements="275" conditionals="92" coveredconditionals="91" methods="34" coveredmethods="31" elements="420" coveredelements="397" complexity="0" loc="294" ncloc="294" packages="4" files="9" classes="9"/>
+<coverage generated="1771063446170" clover="3.2.0">
+  <project timestamp="1771063446170" name="All files">
+    <metrics statements="294" coveredstatements="280" conditionals="92" coveredconditionals="91" methods="34" coveredmethods="32" elements="420" coveredelements="403" complexity="0" loc="294" ncloc="294" packages="4" files="9" classes="9"/>
     <package name="controllers">
-      <metrics statements="260" coveredstatements="243" conditionals="80" coveredconditionals="79" methods="30" coveredmethods="27"/>
+      <metrics statements="260" coveredstatements="248" conditionals="80" coveredconditionals="79" methods="30" coveredmethods="28"/>
       <file name="authController.js" path="/Users/yihfei/Documents/CS4218/cs4218-2520-ecom-project-c24218-2520-team07/controllers/authController.js">
-        <metrics statements="91" coveredstatements="74" conditionals="44" coveredconditionals="43" methods="8" coveredmethods="5"/>
+        <metrics statements="91" coveredstatements="79" conditionals="44" coveredconditionals="43" methods="8" coveredmethods="6"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="9" type="stmt"/>
         <line num="9" count="9" type="stmt"/>
@@ -78,11 +78,11 @@
         <line num="193" count="1" type="stmt"/>
         <line num="194" count="1" type="stmt"/>
         <line num="203" count="1" type="stmt"/>
-        <line num="204" count="0" type="stmt"/>
-        <line num="205" count="0" type="stmt"/>
-        <line num="209" count="0" type="stmt"/>
-        <line num="211" count="0" type="stmt"/>
-        <line num="212" count="0" type="stmt"/>
+        <line num="204" count="2" type="stmt"/>
+        <line num="205" count="2" type="stmt"/>
+        <line num="209" count="1" type="stmt"/>
+        <line num="211" count="1" type="stmt"/>
+        <line num="212" count="1" type="stmt"/>
         <line num="220" count="1" type="stmt"/>
         <line num="221" count="0" type="stmt"/>
         <line num="222" count="0" type="stmt"/>
