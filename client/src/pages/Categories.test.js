@@ -72,3 +72,4 @@ describe("Categories", () => {
     expect(screen.queryByText("Clothing")).not.toBeInTheDocument();
   });
 });
+// Lynn, A0257099M

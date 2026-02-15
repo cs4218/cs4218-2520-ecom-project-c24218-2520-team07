@@ -79,3 +79,4 @@ describe("cart context", () => {
     expect(screen.getByTestId("cart-items")).toHaveTextContent("thing");
   });
 });
+// Lynn, A0257099M
