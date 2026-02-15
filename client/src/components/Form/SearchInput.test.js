@@ -33,12 +33,12 @@ describe("SearchInput", () => {
     // Arrange
     const values = { keyword: "phone", results: [] };
     mockUseSearch.mockReturnValue([values, mockSetValues]);
-    const input = screen.getByPlaceholderText(/search/i);
 
     // Act
     render(<SearchInput />);
 
     // Assert
+    const input = screen.getByPlaceholderText(/search/i);
     expect(input).toHaveValue("phone");
     expect(screen.getByRole("button", { name: /search/i })).toBeInTheDocument();
   });
