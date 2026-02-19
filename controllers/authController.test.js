@@ -364,7 +364,7 @@ describe("Auth Controller", () => {
     it("should return error if password is too short", async () => {
       // Arrange
       req.user = { _id: "user123" };
-      req.body = { password: "123" }; 
+      req.body = { password: "12345" }; // BVA for password length
 
       // Act
       await updateProfileController(req, res);
@@ -380,7 +380,7 @@ describe("Auth Controller", () => {
         {
           scenario: "Full Update",
           description: "all fields provided",
-          body: { name: "New Name", phone: "9999", address: "New Rd", password: "pass123" },
+          body: { name: "New Name", phone: "9999", address: "New Rd", password: "pass12" },
           expected: { name: "New Name", phone: "9999", address: "New Rd" }
         },
         {
