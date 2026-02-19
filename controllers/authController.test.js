@@ -447,62 +447,91 @@ describe("Auth Controller", () => {
 });
 
   describe("getOrdersController", () => {
-    it("should fetch and return user orders successfully", async () => {
-      // Arrange
-      req.user = { _id: "user123" };
-      const mockOrders = [
-        { _id: "o1", products: ["p1"], buyer: "user123" },
-      ];
+  it("should fetch and return user orders successfully with the correct schema", async () => {
+    // Arrange
+    const userId = "67a218decf4efddf1e5358ac";
+    req.user = { _id: userId };
 
-      // Create the chain: find() -> populate() -> populate() -> exec/then
-      const mockPopulate2 = { 
-        populate: jest.fn().mockResolvedValue(mockOrders) 
-      };
-      const mockPopulate1 = { 
-        populate: jest.fn().mockReturnValue(mockPopulate2) 
-      };
-      orderModel.find = jest.fn().mockReturnValue(mockPopulate1);
+    const mockOrders = [
+      { 
+        _id: "67a21938cf4efddf1e5358d1", 
+        products: [
+          { _id: "67a21772a6d9e00ef2ac022a", name: "Laptop", price: 1000 }
+        ], 
+        buyer: { _id: userId, name: "Lim Yih Fei" }, 
+        status: "Shipped",
+        createdAt: "2025-02-04T13:42:16.741+00:00",
+        payment: { 
+          success: true,
+          message: "Transaction successful"
+        },
+        __v: 0
+      },
+    ];
 
-      // Act
-      await getOrdersController(req, res);
+    // Build the mock chain: find -> populate -> populate -> sort (if used)
+    const mockPopulate2 = { 
+      populate: jest.fn().mockResolvedValue(mockOrders) 
+    };
+    const mockPopulate1 = { 
+      populate: jest.fn().mockReturnValue(mockPopulate2) 
+    };
+    orderModel.find = jest.fn().mockReturnValue(mockPopulate1);
 
-      // Assert
-      expect(orderModel.find).toHaveBeenCalledWith({ buyer: "user123" });
-      expect(mockPopulate1.populate).toHaveBeenCalledWith("products", "-photo");
-      expect(mockPopulate2.populate).toHaveBeenCalledWith("buyer", "name");
-      expect(res.json).toHaveBeenCalledWith(mockOrders);
-    });
+    // Act
+    await getOrdersController(req, res);
 
-    it("should handle errors and return 500 status", async () => {
-      // Arrange
-      req.user = { _id: "user123" };
-      const error = new Error("Database error");
-      
-      // Make the initial find() call fail
-      orderModel.find = jest.fn().mockImplementation(() => {
-        throw error;
-      });
-
-      // Act
-      await getOrdersController(req, res);
-
-      // Assert
-      expect(res.status).toHaveBeenCalledWith(500);
-      expect(res.send).toHaveBeenCalledWith(
-        expect.objectContaining({
-          success: false,
-          message: "Error While Getting Orders",
-        })
-      );
-    });
+    // Assert
+    expect(orderModel.find).toHaveBeenCalledWith({ buyer: userId });
+    
+    expect(mockPopulate1.populate).toHaveBeenCalledWith("products", "-photo");
+    expect(mockPopulate2.populate).toHaveBeenCalledWith("buyer", "name");
+    
+    expect(res.json).toHaveBeenCalledWith(mockOrders);
   });
+
+  it("should handle errors and return 500 status", async () => {
+    // Arrange
+    req.user = { _id: "67a218decf4efddf1e5358ac" };
+    const error = new Error("Database error");
+    
+    orderModel.find = jest.fn().mockImplementation(() => {
+      throw error;
+    });
+
+    // Act
+    await getOrdersController(req, res);
+
+    // Assert
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.send).toHaveBeenCalledWith(
+      expect.objectContaining({
+        success: false,
+        message: "Error While Getting Orders",
+      })
+    );
+  });
+});
 
   describe("getAllOrdersController", () => {
     it("should fetch all orders with correct population and sorting", async () => {
       // Arrange
       const mockOrders = [
-        { _id: "o1", products: ["p1"], buyer: "user1", createdAt: new Date() },
-      ];
+      { 
+        _id: "o1", 
+        products: [
+          { _id: "p1", name: "Mechanical Keyboard", price: 129.99 }
+        ], 
+        payment: { 
+          success: false, 
+          message: "Amount is an invalid format." 
+        },
+        buyer: { _id: "67a218de...", name: "Lim Yih Fei" }, 
+        status: "Not Process",
+        createdAt: "2025-02-04T13:42:16.741+00:00",
+        updatedAt: "2025-02-04T13:42:16.741+00:00"
+      },
+    ];
 
       // Mongoose Chain: find() -> populate() -> populate() -> sort()
       // Working backwards for the mock:
@@ -519,7 +548,7 @@ describe("Auth Controller", () => {
       expect(orderModel.find).toHaveBeenCalledWith({});
       expect(mockPopulate1.populate).toHaveBeenCalledWith("products", "-photo");
       expect(mockPopulate2.populate).toHaveBeenCalledWith("buyer", "name");
-      expect(mockSort.sort).toHaveBeenCalledWith({ createdAt: "-1" });
+      expect(mockSort.sort).toHaveBeenCalledWith("-createdAt");
       expect(res.json).toHaveBeenCalledWith(mockOrders);
     });
 
@@ -544,51 +573,59 @@ describe("Auth Controller", () => {
     });
   });
 
-  describe("orderStatusController", () => {
-    it("should update order status successfully", async () => {
-      // Arrange
-      req.params = { orderId: "order123" };
-      req.body = { status: "Shipped" };
-      
-      const mockUpdatedOrder = { 
-        _id: "order123", 
-        status: "Shipped",
-        buyer: "user123" 
-      };
+ describe("orderStatusController", () => {
+  it("should update order status successfully", async () => {
+    // Arrange
+    req.params = { orderId: "67a21938cf4efddf1e5358d1" };
+    req.body = { status: "Shipped" };
+    
+    const mockUpdatedOrder = { 
+      _id: "67a21938cf4efddf1e5358d1", 
+      products: ["67a21772a6d9e00ef2ac022a", "66db427fdb0119d9234b27f3"],
+      payment: { 
+        success: false, 
+        message: "Amount is an invalid format." 
+      },
+      buyer: "67a218decf4efddf1e5358ac",
+      status: "Shipped",
+      createdAt: "2025-02-04T13:42:16.741+00:00",
+      updatedAt: new Date().toISOString(), 
+      __v: 0
+    };
 
-      orderModel.findByIdAndUpdate.mockResolvedValue(mockUpdatedOrder);
+    orderModel.findByIdAndUpdate.mockResolvedValue(mockUpdatedOrder);
 
-      // Act
-      await orderStatusController(req, res);
+    // Act
+    await orderStatusController(req, res);
 
-      // Assert
-      expect(orderModel.findByIdAndUpdate).toHaveBeenCalledWith(
-        "order123",
-        { status: "Shipped" },
-        { new: true }
-      );
-      expect(res.json).toHaveBeenCalledWith(mockUpdatedOrder);
-    });
-
-    it("should handle errors and return 500 status", async () => {
-      // Arrange
-      req.params = { orderId: "order123" };
-      req.body = { status: "Shipped" };
-      
-      const error = new Error("Update failed");
-      orderModel.findByIdAndUpdate.mockRejectedValue(error);
-
-      // Act
-      await orderStatusController(req, res);
-
-      // Assert
-      expect(res.status).toHaveBeenCalledWith(500);
-      expect(res.send).toHaveBeenCalledWith(
-        expect.objectContaining({
-          success: false,
-          message: "Error While Updating Order",
-        })
-      );
-    });
+    // Assert
+    expect(orderModel.findByIdAndUpdate).toHaveBeenCalledWith(
+      "67a21938cf4efddf1e5358d1",
+      { status: "Shipped" },
+      { new: true }
+    );
+    expect(res.json).toHaveBeenCalledWith(mockUpdatedOrder);
   });
+
+  it("should handle errors and return 500 status", async () => {
+    // Arrange
+    req.params = { orderId: "67a21938cf4efddf1e5358d1" };
+    req.body = { status: "Shipped" };
+    
+    const error = new Error("Update failed");
+    orderModel.findByIdAndUpdate.mockRejectedValue(error);
+
+    // Act
+    await orderStatusController(req, res);
+
+    // Assert
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.send).toHaveBeenCalledWith(
+      expect.objectContaining({
+        success: false,
+        message: "Error While Updating Order",
+      })
+    );
+  });
+});
 });
