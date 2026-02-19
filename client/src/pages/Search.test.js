@@ -42,7 +42,7 @@ describe("Search Page Component", () => {
     // Assert
     
     // 1. Verify Headings (using regex to ignore case/typos)
-    expect(screen.getByText(/search resuts/i)).toBeInTheDocument();
+    expect(screen.getByText(/search results/i)).toBeInTheDocument();
     expect(screen.getByText(/found 2/i)).toBeInTheDocument();
 
     // 2. Verify Product Names
