@@ -49,7 +49,7 @@ const HomePage = () => {
     }
   };
 
-  //getTOtal COunt
+  // get total count
   const getTotal = async () => {
     try {
       const { data } = await axios.get("/api/v1/product/product-count");
@@ -94,7 +94,7 @@ const HomePage = () => {
     if (checked.length || radio.length) filterProduct();
   }, [checked, radio]);
 
-  //get filterd product
+  // get filtered product
   const filterProduct = async () => {
     try {
       const { data } = await axios.post("/api/v1/product/product-filters", {
@@ -107,7 +107,7 @@ const HomePage = () => {
     }
   };
   return (
-    <Layout title={"ALL Products - Best offers "}>
+    <Layout title={"ALL Products - Best offers"}>
       {/* banner image */}
       <img
         src="/images/Virtual.png"
@@ -133,8 +133,8 @@ const HomePage = () => {
           <h4 className="text-center mt-4">Filter By Price</h4>
           <div className="d-flex flex-column">
             <Radio.Group onChange={(e) => setRadio(e.target.value)}>
-              {Prices?.map((p) => (
-                <div key={p._id}>
+              {Prices?.map((p, index) => (
+                <div key={`price-filter-${index}-${p.name}`}>
                   <Radio value={p.array}>{p.name}</Radio>
                 </div>
               ))}

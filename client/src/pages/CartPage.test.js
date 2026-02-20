@@ -226,7 +226,7 @@ describe("CartPage", () => {
       </MemoryRouter>
     );
 
-    const loginBtn = screen.getByText("Plase Login to checkout");
+    const loginBtn = screen.getByText("Please Login to checkout");
     fireEvent.click(loginBtn);
 
     expect(mockNavigate).toHaveBeenCalledWith("/login", {
