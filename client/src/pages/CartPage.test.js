@@ -307,4 +307,4 @@ describe("CartPage", () => {
     expect(screen.getByText(/Total :/)).toHaveTextContent(/79\.98/);
   });
 });
-// Lynn, A0257099M
+// Low Han, Lynn A0257099M
