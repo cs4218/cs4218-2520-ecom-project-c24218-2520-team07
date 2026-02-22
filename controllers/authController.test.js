@@ -6,13 +6,19 @@ import {
   loginController,
   forgotPasswordController,
   testController,
+  updateProfileController,
+  getOrdersController,
+  getAllOrdersController,
+  orderStatusController,
 } from "../controllers/authController.js";
 import userModel from "../models/userModel.js";
+import orderModel from "../models/orderModel.js";
 import JWT from "jsonwebtoken";
 import { hashPassword, comparePassword } from "../helpers/authHelper.js";
 
 // Mock userModel methods
 jest.mock("../models/userModel.js");
+jest.mock("../models/orderModel.js");
 jest.mock("../helpers/authHelper.js");
 jest.mock("jsonwebtoken");
 
@@ -32,6 +38,7 @@ describe("Auth Controller", () => {
     res = {
       status: jest.fn().mockReturnThis(),
       send: jest.fn(),
+      json: jest.fn().mockReturnThis(),
     };
     jest.clearAllMocks();
   });
@@ -351,4 +358,274 @@ describe("Auth Controller", () => {
       expect(console.log).toHaveBeenCalledWith(error);
     });
   });
+
+  // Lim Yih Fei A0256993J
+  describe("updateProfileController", () => {
+    it("should return error if password is too short", async () => {
+      // Arrange
+      req.user = { _id: "user123" };
+      req.body = { password: "12345" }; // BVA for password length
+
+      // Act
+      await updateProfileController(req, res);
+
+      // Assert
+      expect(res.json).toHaveBeenCalledWith({
+        error: "Password is required and 6 character long",
+      });
+    });
+
+    describe("Success Scenarios", () => {
+      test.each([
+        {
+          scenario: "Full Update",
+          description: "all fields provided",
+          body: { name: "New Name", phone: "9999", address: "New Rd", password: "pass12" },
+          expected: { name: "New Name", phone: "9999", address: "New Rd" }
+        },
+        {
+          scenario: "Partial Update (Missing Name)",
+          description: "falls back to existing name",
+          body: { phone: "8888", address: "88 Rd" }, 
+          expected: { name: "Old Name", phone: "8888", address: "88 Rd" }
+        },
+        {
+          scenario: "Partial Update (Missing Phone & Address)",
+          description: "falls back to existing phone and address",
+          body: { name: "Only Name" }, 
+          expected: { name: "Only Name", phone: "7777", address: "Old Addr" }
+        }
+      ])("Scenario: $scenario ($description)", async ({ body, expected }) => {
+        
+        // Arrange
+        req.user = { _id: "user123" };
+        req.body = body;
+
+        const existingUser = {
+          _id: "user123",
+          name: "Old Name",
+          phone: "7777",
+          address: "Old Addr",
+          password: "hashed_old_password"
+        };
+
+        userModel.findById.mockResolvedValue(existingUser);
+        hashPassword.mockResolvedValue("hashed_new_password");
+        userModel.findByIdAndUpdate.mockResolvedValue({ ...existingUser, ...body });
+
+        // Act
+        await updateProfileController(req, res);
+
+        // Assert
+        expect(userModel.findByIdAndUpdate).toHaveBeenCalledWith(
+          "user123",
+          expect.objectContaining(expected),
+          { new: true }
+        );
+
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.send).toHaveBeenCalledWith(
+          expect.objectContaining({ success: true })
+        );
+      });
+    });
+
+  it("should handle errors during update", async () => {
+    // Arrange
+    req.user = { _id: "user123" };
+    userModel.findById.mockRejectedValue(new Error("Update Failed"));
+
+    // Act
+    await updateProfileController(req, res);
+
+    // Assert
+    expect(res.status).toHaveBeenCalledWith(400);
+    expect(res.send).toHaveBeenCalledWith(
+      expect.objectContaining({ success: false })
+    );
+  });
+});
+
+  describe("getOrdersController", () => {
+  it("should fetch and return user orders successfully with the correct schema", async () => {
+    // Arrange
+    const userId = "67a218decf4efddf1e5358ac";
+    req.user = { _id: userId };
+
+    const mockOrders = [
+      { 
+        _id: "67a21938cf4efddf1e5358d1", 
+        products: [
+          { _id: "67a21772a6d9e00ef2ac022a", name: "Laptop", price: 1000 }
+        ], 
+        buyer: { _id: userId, name: "Lim Yih Fei" }, 
+        status: "Shipped",
+        createdAt: "2025-02-04T13:42:16.741+00:00",
+        payment: { 
+          success: true,
+          message: "Transaction successful"
+        },
+        __v: 0
+      },
+    ];
+
+    // Build the mock chain: find -> populate -> populate -> sort (if used)
+    const mockPopulate2 = { 
+      populate: jest.fn().mockResolvedValue(mockOrders) 
+    };
+    const mockPopulate1 = { 
+      populate: jest.fn().mockReturnValue(mockPopulate2) 
+    };
+    orderModel.find = jest.fn().mockReturnValue(mockPopulate1);
+
+    // Act
+    await getOrdersController(req, res);
+
+    // Assert
+    expect(orderModel.find).toHaveBeenCalledWith({ buyer: userId });
+    
+    expect(mockPopulate1.populate).toHaveBeenCalledWith("products", "-photo");
+    expect(mockPopulate2.populate).toHaveBeenCalledWith("buyer", "name");
+    
+    expect(res.json).toHaveBeenCalledWith(mockOrders);
+  });
+
+  it("should handle errors and return 500 status", async () => {
+    // Arrange
+    req.user = { _id: "67a218decf4efddf1e5358ac" };
+    const error = new Error("Database error");
+    
+    orderModel.find = jest.fn().mockImplementation(() => {
+      throw error;
+    });
+
+    // Act
+    await getOrdersController(req, res);
+
+    // Assert
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.send).toHaveBeenCalledWith(
+      expect.objectContaining({
+        success: false,
+        message: "Error While Getting Orders",
+      })
+    );
+  });
+});
+
+  describe("getAllOrdersController", () => {
+    it("should fetch all orders with correct population and sorting", async () => {
+      // Arrange
+      const mockOrders = [
+      { 
+        _id: "o1", 
+        products: [
+          { _id: "p1", name: "Mechanical Keyboard", price: 129.99 }
+        ], 
+        payment: { 
+          success: false, 
+          message: "Amount is an invalid format." 
+        },
+        buyer: { _id: "67a218de...", name: "Lim Yih Fei" }, 
+        status: "Not Process",
+        createdAt: "2025-02-04T13:42:16.741+00:00",
+        updatedAt: "2025-02-04T13:42:16.741+00:00"
+      },
+    ];
+
+      // Mongoose Chain: find() -> populate() -> populate() -> sort()
+      // Working backwards for the mock:
+      const mockSort = { sort: jest.fn().mockResolvedValue(mockOrders) };
+      const mockPopulate2 = { populate: jest.fn().mockReturnValue(mockSort) };
+      const mockPopulate1 = { populate: jest.fn().mockReturnValue(mockPopulate2) };
+      
+      orderModel.find = jest.fn().mockReturnValue(mockPopulate1);
+
+      // Act
+      await getAllOrdersController(req, res);
+
+      // Assert
+      expect(orderModel.find).toHaveBeenCalledWith({});
+      expect(mockPopulate1.populate).toHaveBeenCalledWith("products", "-photo");
+      expect(mockPopulate2.populate).toHaveBeenCalledWith("buyer", "name");
+      expect(mockSort.sort).toHaveBeenCalledWith("-createdAt");
+      expect(res.json).toHaveBeenCalledWith(mockOrders);
+    });
+
+    it("should handle errors and return 500 status", async () => {
+      // Arrange
+      const error = new Error("Database error");
+      orderModel.find = jest.fn().mockImplementation(() => {
+        throw error;
+      });
+
+      // Act
+      await getAllOrdersController(req, res);
+
+      // Assert
+      expect(res.status).toHaveBeenCalledWith(500);
+      expect(res.send).toHaveBeenCalledWith(
+        expect.objectContaining({
+          success: false,
+          message: "Error While Getting Orders",
+        })
+      );
+    });
+  });
+
+ describe("orderStatusController", () => {
+  it("should update order status successfully", async () => {
+    // Arrange
+    req.params = { orderId: "67a21938cf4efddf1e5358d1" };
+    req.body = { status: "Shipped" };
+    
+    const mockUpdatedOrder = { 
+      _id: "67a21938cf4efddf1e5358d1", 
+      products: ["67a21772a6d9e00ef2ac022a", "66db427fdb0119d9234b27f3"],
+      payment: { 
+        success: false, 
+        message: "Amount is an invalid format." 
+      },
+      buyer: "67a218decf4efddf1e5358ac",
+      status: "Shipped",
+      createdAt: "2025-02-04T13:42:16.741+00:00",
+      updatedAt: new Date().toISOString(), 
+      __v: 0
+    };
+
+    orderModel.findByIdAndUpdate.mockResolvedValue(mockUpdatedOrder);
+
+    // Act
+    await orderStatusController(req, res);
+
+    // Assert
+    expect(orderModel.findByIdAndUpdate).toHaveBeenCalledWith(
+      "67a21938cf4efddf1e5358d1",
+      { status: "Shipped" },
+      { new: true }
+    );
+    expect(res.json).toHaveBeenCalledWith(mockUpdatedOrder);
+  });
+
+  it("should handle errors and return 500 status", async () => {
+    // Arrange
+    req.params = { orderId: "67a21938cf4efddf1e5358d1" };
+    req.body = { status: "Shipped" };
+    
+    const error = new Error("Update failed");
+    orderModel.findByIdAndUpdate.mockRejectedValue(error);
+
+    // Act
+    await orderStatusController(req, res);
+
+    // Assert
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.send).toHaveBeenCalledWith(
+      expect.objectContaining({
+        success: false,
+        message: "Error While Updating Order",
+      })
+    );
+  });
+});
 });
