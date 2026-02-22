@@ -226,7 +226,7 @@ describe("CartPage", () => {
       </MemoryRouter>
     );
 
-    const loginBtn = screen.getByText("Plase Login to checkout");
+    const loginBtn = screen.getByText("Please Login to checkout");
     fireEvent.click(loginBtn);
 
     expect(mockNavigate).toHaveBeenCalledWith("/login", {
@@ -307,4 +307,4 @@ describe("CartPage", () => {
     expect(screen.getByText(/Total :/)).toHaveTextContent(/79\.98/);
   });
 });
-// Lynn, A0257099M
+// Low Han, Lynn A0257099M
