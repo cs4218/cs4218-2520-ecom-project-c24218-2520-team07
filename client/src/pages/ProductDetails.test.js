@@ -184,7 +184,7 @@ describe("ProductDetails", () => {
 
     await waitFor(() => {
       const description = screen.getByText(
-        /Related product description that is longer than sixty charact/,
+        /Related product description that is longer than sixty charac/,
       );
       expect(description).toBeInTheDocument();
     });

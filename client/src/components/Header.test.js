@@ -15,18 +15,15 @@ jest.mock("react-icons/ai", () => ({
 }));
 
 const mockSetAuth = jest.fn();
+const mockUseAuth = jest.fn();
+const mockUseCart = jest.fn();
+
 jest.mock("../context/auth", () => ({
-  useAuth: () => [
-    {
-      user: null,
-      token: "",
-    },
-    mockSetAuth,
-  ],
+  useAuth: () => mockUseAuth(),
 }));
 
 jest.mock("../context/cart", () => ({
-  useCart: () => [[]],
+  useCart: () => mockUseCart(),
 }));
 
 jest.mock("../hooks/useCategory", () => () => [
@@ -43,6 +40,14 @@ jest.mock("antd", () => ({
 describe("Header - Unauthenticated User", () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockUseAuth.mockReturnValue([
+      {
+        user: null,
+        token: "",
+      },
+      mockSetAuth,
+    ]);
+    mockUseCart.mockReturnValue([[]]);
   });
 
   // Output-based testing - verify navigation links
@@ -136,13 +141,14 @@ describe("Header - Unauthenticated User", () => {
 describe("Header - Authenticated Regular User", () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    require("../context/auth").useAuth.mockReturnValue([
+    mockUseAuth.mockReturnValue([
       {
         user: { name: "John Doe", role: 0 },
         token: "test-token",
       },
       mockSetAuth,
     ]);
+    mockUseCart.mockReturnValue([[]]);
   });
 
   it("displays user name in dropdown for authenticated users", () => {
@@ -195,13 +201,14 @@ describe("Header - Authenticated Regular User", () => {
 describe("Header - Authenticated Admin User", () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    require("../context/auth").useAuth.mockReturnValue([
+    mockUseAuth.mockReturnValue([
       {
         user: { name: "Admin User", role: 1 },
         token: "admin-token",
       },
       mockSetAuth,
     ]);
+    mockUseCart.mockReturnValue([[]]);
   });
 
   it("shows Dashboard link pointing to admin dashboard for admin users", () => {
@@ -223,13 +230,14 @@ describe("Header - Authenticated Admin User", () => {
 describe("Header - Logout Functionality", () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    require("../context/auth").useAuth.mockReturnValue([
+    mockUseAuth.mockReturnValue([
       {
         user: { name: "Test User", role: 0 },
         token: "test-token",
       },
       mockSetAuth,
     ]);
+    mockUseCart.mockReturnValue([[]]);
     Storage.prototype.removeItem = jest.fn();
   });
 
@@ -245,8 +253,8 @@ describe("Header - Logout Functionality", () => {
     fireEvent.click(logoutLink);
 
     expect(mockSetAuth).toHaveBeenCalledWith({
-      user: { name: "Test User", role: 0 },
-      token: "test-token",
+      user: null,
+      token: "",
     });
   });
 
@@ -280,9 +288,14 @@ describe("Header - Logout Functionality", () => {
 describe("Header - Cart with Items", () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    require("../context/cart").useCart.mockReturnValue([
-      [{ id: 1 }, { id: 2 }, { id: 3 }],
+    mockUseAuth.mockReturnValue([
+      {
+        user: null,
+        token: "",
+      },
+      mockSetAuth,
     ]);
+    mockUseCart.mockReturnValue([[{ id: 1 }, { id: 2 }, { id: 3 }]]);
   });
 
   it("shows correct cart count in badge", () => {
