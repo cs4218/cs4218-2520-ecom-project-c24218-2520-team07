@@ -229,7 +229,7 @@ To begin unit testing with Jest in your project, follow these steps:
 - context/search.js
 - pages/Search.js
 
-### Cleon
+### Cleon Tan De Xuan (A0252030B)
 
 **Product:**
 
@@ -293,4 +293,4 @@ To begin unit testing with Jest in your project, follow these steps:
 
 ## 7. MS1 CI URL
 
-**MS1 CI URL:** 
+**MS1 CI URL:** https://github.com/cs4218/cs4218-2520-ecom-project-c24218-2520-team07/actions/runs/22291062421/job/64478271606
