@@ -144,3 +144,153 @@ To begin unit testing with Jest in your project, follow these steps:
      ```bash
      npm run test
      ```
+
+## 6. Team Contribution Breakdown
+
+### Lin Bin (A0258760W)
+
+**Protected Routes:**
+
+- context/auth.js
+- helpers/authHelper.js
+- middlewares/authMiddleware.js
+
+**Registration & Login & ForgotPassword:** 
+
+- pages/Auth/Register.js
+- pages/Auth/Login.js
+- pages/Auth/ForgotPassword.js
+- controllers/authController.js
+   1. registerController
+   2. loginController
+   3. forgotPasswordController 
+   4. testController
+
+**Admin Dashboard:**
+
+- components/AdminMenu.js
+- pages/admin/AdminDashboard.js
+
+### Goh En Rui Ryann (A0252528A)
+
+**Admin Actions:**
+
+- components/Form/CategoryForm.js
+- pages/admin/CreateCategory.js
+- pages/admin/CreateProduct.js
+- pages/admin/UpdateProduct.js
+- controllers/categoryController.js
+   1. createCategoryController 
+   2. updateCategoryController 
+   3. deleteCategoryController
+
+**Admin View Orders:** 
+
+- pages/admin/AdminOrders.js
+
+**Admin View Products:**
+
+- pages/admin/Products.js
+- controllers/productController.js
+   1. createProductController 
+   2. deleteProductController 
+   3. updateProductController
+
+**General:**
+
+- components/Routes/Private.js
+- components/UserMenu.js
+- pages/user/Dashboard.js
+- models/userModel.js
+
+### Lim Yih Fei (A0256993J)
+
+**Order:**
+
+- pages/user/Orders.js
+- controllers/authController.js
+   1. updateProfileController 
+   2. getOrdersController
+   3. getAllOrdersController 
+   4. orderStatusController
+- models/orderModel.js
+
+**Profile:** 
+
+- pages/user/Profile.js
+
+**Admin View Users:**
+
+- pages/admin/Users.js
+
+**Search:**
+
+- components/Form/SearchInput.js
+- context/search.js
+- pages/Search.js
+
+### Cleon Tan De Xuan (A0252030B)
+
+**Product:**
+
+- pages/ProductDetails.js
+- pages/CategoryProduct.js
+- controllers/productController.js
+   1. getProductController
+   2. getSingleProductController 
+   3. productPhotoController
+   4. productFiltersController
+   5. productCountController
+   6. productListController
+   7. searchProductController
+   8. realtedProductController
+   9. productCategoryController
+- models/productModel.js
+
+**Contact:** 
+
+- pages/Contact.js
+
+**Policy:**
+
+- pages/Policy.js
+
+**General:**
+
+- components/Footer.js
+- components/Header.js
+- components/Layout.js
+- components/Spinner.js
+- pages/About.js
+- pages/Pagenotfound.js
+- config/db.js
+
+### Low Han, Lynn (A0257099M)
+
+**Home:**
+
+- pages/Homepage.js
+
+**Cart:** 
+
+- context/cart.js
+- pages/CartPage.js
+
+**Category:**
+
+- hooks/useCategory.js
+- pages/Categories.js
+- controllers/categoryController.js
+   1. categoryControlller
+   2. singleCategoryController
+- models/categoryModel.js
+
+**Payment:**
+
+- controllers/productController.js
+   1. braintreeTokenController
+   2. brainTreePaymentController
+
+## 7. MS1 CI URL
+
+**MS1 CI URL:** https://github.com/cs4218/cs4218-2520-ecom-project-c24218-2520-team07/actions/runs/22291062421/job/64478271606
