@@ -23,7 +23,6 @@ Virtual Vault is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) e-co
 ### 1. Installing Node.js
 
 1. **Download and Install Node.js**:
-
    - Visit [nodejs.org](https://nodejs.org) to download and install Node.js.
 
 2. **Verify Installation**:
@@ -36,26 +35,21 @@ Virtual Vault is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) e-co
 ### 2. MongoDB Setup
 
 1. **Download and Install MongoDB Compass**:
-
    - Visit [MongoDB Compass](https://www.mongodb.com/products/tools/compass) and download and install MongoDB Compass for your operating system.
 
 2. **Create a New Cluster**:
-
    - Sign up or log in to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register).
    - After logging in, create a project and within that project deploy a free cluster.
 
 3. **Configure Database Access**:
-
    - Create a new user for your database (if not alredy done so) in MongoDB Atlas.
    - Navigate to "Database Access" under "Security" and create a new user with the appropriate permissions.
 
 4. **Whitelist IP Address**:
-
    - Go to "Network Access" under "Security" and whitelist your IP address to allow access from your machine.
    - For example, you could whitelist 0.0.0.0 to allow access from anywhere for ease of use.
 
 5. **Connect to the Database**:
-
    - In your cluster's page on MongoDB Atlas, click on "Connect" and choose "Compass".
    - Copy the connection string.
 
@@ -67,7 +61,6 @@ Virtual Vault is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) e-co
 To download and use the MERN (MongoDB, Express.js, React.js, Node.js) app from GitHub, follow these general steps:
 
 1. **Clone the Repository**
-
    - Go to the GitHub repository of the MERN app.
    - Click on the "Code" button and copy the URL of the repository.
    - Open your terminal or command prompt.
@@ -78,7 +71,6 @@ To download and use the MERN (MongoDB, Express.js, React.js, Node.js) app from G
    - Navigate into the cloned directory.
 
 2. **Install Frontend and Backend Dependencies**
-
    - Run the following command in your project's root directory:
 
      ```
@@ -86,14 +78,12 @@ To download and use the MERN (MongoDB, Express.js, React.js, Node.js) app from G
      ```
 
 3. **Add database connection string to `.env`**
-
    - Add the connection string copied from MongoDB Atlas to the `.env` file inside the project directory (replace the necessary placeholders):
      ```env
      MONGO_URL = <connection string>
      ```
 
 4. **Adding sample data to database**
-
    - Download “Sample DB Schema” from Canvas and extract it.
    - In MongoDB Compass, create a database named `test` under your cluster.
    - Add four collections to this database: `categories`, `orders`, `products`, and `users`.
@@ -127,7 +117,6 @@ To begin unit testing with Jest in your project, follow these steps:
 3. **Run Tests**  
    Execute your tests using Jest to ensure that your components meet the expected behaviour.  
    You can run the tests by using the following command in the root of the directory:
-
    - **Frontend tests**
 
      ```bash
@@ -155,16 +144,16 @@ To begin unit testing with Jest in your project, follow these steps:
 - helpers/authHelper.js
 - middlewares/authMiddleware.js
 
-**Registration & Login & ForgotPassword:** 
+**Registration & Login & ForgotPassword:**
 
 - pages/Auth/Register.js
 - pages/Auth/Login.js
 - pages/Auth/ForgotPassword.js
 - controllers/authController.js
-   1. registerController
-   2. loginController
-   3. forgotPasswordController 
-   4. testController
+  1.  registerController
+  2.  loginController
+  3.  forgotPasswordController
+  4.  testController
 
 **Admin Dashboard:**
 
@@ -180,11 +169,11 @@ To begin unit testing with Jest in your project, follow these steps:
 - pages/admin/CreateProduct.js
 - pages/admin/UpdateProduct.js
 - controllers/categoryController.js
-   1. createCategoryController 
-   2. updateCategoryController 
-   3. deleteCategoryController
+  1.  createCategoryController
+  2.  updateCategoryController
+  3.  deleteCategoryController
 
-**Admin View Orders:** 
+**Admin View Orders:**
 
 - pages/admin/AdminOrders.js
 
@@ -192,9 +181,9 @@ To begin unit testing with Jest in your project, follow these steps:
 
 - pages/admin/Products.js
 - controllers/productController.js
-   1. createProductController 
-   2. deleteProductController 
-   3. updateProductController
+  1.  createProductController
+  2.  deleteProductController
+  3.  updateProductController
 
 **General:**
 
@@ -209,13 +198,13 @@ To begin unit testing with Jest in your project, follow these steps:
 
 - pages/user/Orders.js
 - controllers/authController.js
-   1. updateProfileController 
-   2. getOrdersController
-   3. getAllOrdersController 
-   4. orderStatusController
+  1.  updateProfileController
+  2.  getOrdersController
+  3.  getAllOrdersController
+  4.  orderStatusController
 - models/orderModel.js
 
-**Profile:** 
+**Profile:**
 
 - pages/user/Profile.js
 
@@ -236,18 +225,18 @@ To begin unit testing with Jest in your project, follow these steps:
 - pages/ProductDetails.js
 - pages/CategoryProduct.js
 - controllers/productController.js
-   1. getProductController
-   2. getSingleProductController 
-   3. productPhotoController
-   4. productFiltersController
-   5. productCountController
-   6. productListController
-   7. searchProductController
-   8. realtedProductController
-   9. productCategoryController
+  1.  getProductController
+  2.  getSingleProductController
+  3.  productPhotoController
+  4.  productFiltersController
+  5.  productCountController
+  6.  productListController
+  7.  searchProductController
+  8.  realtedProductController
+  9.  productCategoryController
 - models/productModel.js
 
-**Contact:** 
+**Contact:**
 
 - pages/Contact.js
 
@@ -271,7 +260,7 @@ To begin unit testing with Jest in your project, follow these steps:
 
 - pages/Homepage.js
 
-**Cart:** 
+**Cart:**
 
 - context/cart.js
 - pages/CartPage.js
@@ -281,16 +270,16 @@ To begin unit testing with Jest in your project, follow these steps:
 - hooks/useCategory.js
 - pages/Categories.js
 - controllers/categoryController.js
-   1. categoryControlller
-   2. singleCategoryController
+  1.  categoryControlller
+  2.  singleCategoryController
 - models/categoryModel.js
 
 **Payment:**
 
 - controllers/productController.js
-   1. braintreeTokenController
-   2. brainTreePaymentController
+  1.  braintreeTokenController
+  2.  brainTreePaymentController
 
 ## 7. MS1 CI URL
 
-**MS1 CI URL:** https://github.com/cs4218/cs4218-2520-ecom-project-c24218-2520-team07/actions/runs/22291062421/job/64478271606
+**MS1 CI URL:** https://github.com/cs4218/cs4218-2520-ecom-project-c24218-2520-team07/actions/runs/22291339585/job/64479023579
