@@ -18,6 +18,10 @@
   "author": "RP",
   "license": "ISC",
   "dependencies": {
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "antd": "^6.3.0",
+    "axios": "^1.13.5",
     "bcrypt": "^5.1.1",
     "braintree": "^3.22.0",
     "colors": "^1.4.0",
@@ -32,7 +36,10 @@
     "mongoose": "^8.1.2",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.3",
+    "react-helmet": "^6.1.0",
+    "react-hot-toast": "^2.6.0",
     "react-icons": "^5.0.1",
+    "react-router-dom": "^7.13.0",
     "slugify": "^1.6.6"
   },
   "devDependencies": {
@@ -40,6 +47,7 @@
     "@babel/preset-env": "^7.24.5",
     "@babel/preset-react": "^7.24.1",
     "@playwright/test": "^1.44.0",
+    "@testing-library/jest-dom": "^6.9.1",
     "@types/node": "^20.12.12",
     "babel-jest": "^29.7.0",
     "identity-obj-proxy": "^3.0.0",
