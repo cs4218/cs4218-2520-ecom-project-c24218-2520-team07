@@ -12,7 +12,9 @@ import cors from "cors";
 dotenv.config();
 
 //database config
-connectDB();
+if (process.env.NODE_ENV !== "test") {
+  connectDB();
+}
 
 const app = express();
 
@@ -26,14 +28,17 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 
-// rest api
+// Only start server if not in test
+let server;
+if (process.env.NODE_ENV !== "test") {
+  const PORT = process.env.PORT || 6060;
+  console.log("PORT: ", PORT);
+  server = app.listen(PORT, () => {
+    console.log(
+      `Server running on ${process.env.DEV_MODE} mode on ${PORT}`.bgCyan.white
+    );
+  });
+}
 
-app.get('/', (req,res) => {
-    res.send("<h1>Welcome to ecommerce app</h1>");
-});
-
-const PORT = process.env.PORT || 6060;
-
-app.listen(PORT, () => {
-    console.log(`Server running on ${process.env.DEV_MODE} mode on ${PORT}`.bgCyan.white);
-});
+// Export both app and server
+export { app, server };
