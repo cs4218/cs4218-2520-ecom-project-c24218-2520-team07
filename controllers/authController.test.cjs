@@ -1,7 +1,7 @@
 // Lin Bin A0258760W
 
 // __tests__/authController.test.js
-import {
+const {
   registerController,
   loginController,
   forgotPasswordController,
@@ -10,11 +10,15 @@ import {
   getOrdersController,
   getAllOrdersController,
   orderStatusController,
-} from "../controllers/authController.js";
-import userModel from "../models/userModel.js";
-import orderModel from "../models/orderModel.js";
-import JWT from "jsonwebtoken";
-import { hashPassword, comparePassword } from "../helpers/authHelper.js";
+} = require("./authController.js");
+
+// Require models
+const userModel = require("../models/userModel.js");
+const orderModel = require("../models/orderModel.js");
+
+// Require other helpers
+const JWT = require("jsonwebtoken");
+const { hashPassword, comparePassword } = require("../helpers/authHelper.js");
 
 // Mock userModel methods
 jest.mock("../models/userModel.js");

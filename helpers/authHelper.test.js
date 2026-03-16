@@ -2,6 +2,7 @@
 
 import { hashPassword, comparePassword } from "./authHelper";
 import bcrypt from "bcrypt";
+import { jest } from '@jest/globals';
 
 describe("authHelper - Password Utilities", () => {
   describe("hashPassword", () => {

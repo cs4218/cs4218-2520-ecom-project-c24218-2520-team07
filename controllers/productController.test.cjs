@@ -1,13 +1,6 @@
 // Goh En Rui Ryann A0252528A
 
-import { jest } from "@jest/globals";
-import productModel from "../models/productModel.js";
-import categoryModel from "../models/categoryModel.js";
-import orderModel from "../models/orderModel.js";
-import slugify from "slugify";
-import fs from "fs";
-import braintree from "braintree";
-import {
+const {
   createProductController,
   getProductController,
   getSingleProductController,
@@ -22,7 +15,17 @@ import {
   productCategoryController,
   braintreeTokenController,
   brainTreePaymentController,
-} from "./productController.js";
+} = require("./productController.js");
+
+// Require models
+const productModel = require("../models/productModel.js");
+const categoryModel = require("../models/categoryModel.js");
+const orderModel = require("../models/orderModel.js");
+
+// Require helpers / libraries
+const slugify = require("slugify");
+const fs = require("fs");
+const braintree = require("braintree");
 
 jest.mock("../models/productModel.js", () => ({
   __esModule: true,

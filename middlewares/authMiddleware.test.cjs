@@ -1,8 +1,8 @@
 // Lin Bin A0258760W
 
 import { requireSignIn, isAdmin } from "./authMiddleware.js";
-import JWT from "jsonwebtoken";
-import userModel from "../models/userModel.js";
+const JWT = require("jsonwebtoken");
+const userModel = require("../models/userModel.js");
 
 // Mock userModel
 jest.mock("../models/userModel.js");
