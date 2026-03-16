@@ -166,4 +166,18 @@ describe("Stage 2: API Route + Backend + Database", () => {
     expect(response.body.success).toBe(false);
     expect(response.body.message).toBe("Invalid Password");
   });
+
+  test("POST /api/v1/auth/login fails with unregistered email", async () => {
+    // Ensure the user database is empty or does not contain this email
+    await userModel.deleteMany({});
+
+    const response = await request(app).post("/api/v1/auth/login").send({
+      email: "nouser@example.com",
+      password: "anyPassword123",
+    });
+
+    expect(response.status).toBe(404); // Or the status your controller uses for unregistered email
+    expect(response.body.success).toBe(false);
+    expect(response.body.message).toBe("Email is not registered"); // Match your controller's message
+  });
 });

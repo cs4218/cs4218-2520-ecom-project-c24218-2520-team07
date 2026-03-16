@@ -125,6 +125,40 @@ describe("Stage 1: forgotPasswordController + DB", () => {
       }),
     );
   });
+
+  test("fails when email is empty", async () => {
+    const req = {
+      body: { email: "", answer: "any", newPassword: "pass" },
+    };
+    const res = { status: jest.fn().mockReturnThis(), send: jest.fn() };
+
+    await forgotPasswordController(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(400); // Bad Request
+    expect(res.send).toHaveBeenCalledWith(
+      expect.objectContaining({
+        success: false,
+        message: "Email is required",
+      }),
+    );
+  });
+
+  test("fails when answer is empty", async () => {
+    const req = {
+      body: { email: testUser.email, answer: "", newPassword: "pass" },
+    };
+    const res = { status: jest.fn().mockReturnThis(), send: jest.fn() };
+
+    await forgotPasswordController(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(400); // Bad Request
+    expect(res.send).toHaveBeenCalledWith(
+      expect.objectContaining({
+        success: false,
+        message: "Answer is required",
+      }),
+    );
+  });
 });
 
 // ---------------------
@@ -165,5 +199,47 @@ describe("Stage 2: API Route + Backend + Database", () => {
     expect(response.status).toBe(404);
     expect(response.body.success).toBe(false);
     expect(response.body.message).toBe("Wrong Email Or Answer");
+  });
+
+  test("POST /api/v1/auth/forgot-password fails for unregistered email", async () => {
+    const response = await request(app)
+      .post("/api/v1/auth/forgot-password")
+      .send({
+        email: "nouser@example.com",
+        answer: "any",
+        newPassword: "newpass123",
+      });
+
+    expect(response.status).toBe(404);
+    expect(response.body.success).toBe(false);
+    expect(response.body.message).toBe("Wrong Email Or Answer");
+  });
+
+  test("POST /api/v1/auth/forgot-password fails for empty email", async () => {
+    const response = await request(app)
+      .post("/api/v1/auth/forgot-password")
+      .send({
+        email: "",
+        answer: "any",
+        newPassword: "newpass123",
+      });
+
+    expect(response.status).toBe(400);
+    expect(response.body.success).toBe(false);
+    expect(response.body.message).toBe("Email is required");
+  });
+
+  test("POST /api/v1/auth/forgot-password fails for empty answer", async () => {
+    const response = await request(app)
+      .post("/api/v1/auth/forgot-password")
+      .send({
+        email: testUser.email,
+        answer: "",
+        newPassword: "newpass123",
+      });
+
+    expect(response.status).toBe(400);
+    expect(response.body.success).toBe(false);
+    expect(response.body.message).toBe("Answer is required");
   });
 });
