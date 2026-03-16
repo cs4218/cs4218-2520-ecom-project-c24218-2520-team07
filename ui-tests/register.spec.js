@@ -1,3 +1,4 @@
+// Lin Bin A0258760W
 import { test, expect } from "@playwright/test";
 
 test.describe("Register Page UI Tests", () => {
