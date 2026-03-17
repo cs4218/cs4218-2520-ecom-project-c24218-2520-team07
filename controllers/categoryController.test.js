@@ -1,16 +1,15 @@
 // Goh En Rui Ryann A0252528A
 
-const jest = require('jest-mock'); // optional, jest globals are usually available
-const categoryModel = require('../models/categoryModel.js');
-const slugify = require('slugify');
-
-const {
+import { jest } from "@jest/globals";
+import categoryModel from "../models/categoryModel.js";
+import slugify from "slugify";
+import {
   createCategoryController,
   updateCategoryController,
   categoryControlller,
   singleCategoryController,
   deleteCategoryCOntroller,
-} = require('./categoryController.js');
+} from "./categoryController.js";
 
 jest.mock("../models/categoryModel.js", () => ({
   __esModule: true,
