@@ -1,6 +1,6 @@
 // Lin Bin A0258760W
 import mongoose from "mongoose";
-import userModel from "../models/userModel.js";
+import { userModel } from "../models/userModel.js";
 import { loginController } from "../controllers/authController.js";
 import { hashPassword } from "../helpers/authHelper.js";
 import { MongoMemoryServer } from "mongodb-memory-server";

@@ -6,9 +6,11 @@ export default { // do not change
   testEnvironment: "node",
 
   // which test to run
-  testMatch: ["<rootDir>/integration-tests/*.test.js"],
+  testMatch: ["<rootDir>/integration-tests/**/*.test.mjs"],
 
-  transform: {},
+  transform: {
+    "^.+\\.m?js$": ["babel-jest", { presets: ["@babel/preset-env"] }],
+  },
 
   workerIdleMemoryLimit: '512MB',
  

@@ -1,7 +1,7 @@
 // Lin Bin A0258760W
 import { jest } from "@jest/globals";
 import mongoose from "mongoose";
-import userModel from "../models/userModel.js";
+import { userModel } from "../models/userModel.js";
 import { registerController } from "../controllers/authController.js";
 import { MongoMemoryServer } from "mongodb-memory-server";
 import request from "supertest";
