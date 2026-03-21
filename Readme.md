@@ -283,3 +283,119 @@ To begin unit testing with Jest in your project, follow these steps:
 ## 7. MS1 CI URL
 
 **MS1 CI URL:** https://github.com/cs4218/cs4218-2520-ecom-project-c24218-2520-team07/actions/runs/22291339585/job/64479023579
+
+## 8. MS2 Integration Tests & UI Tests
+
+### Overview
+Milestone 2 focuses on integration testing and UI/E2E testing. Integration tests validate the interactions between multiple components, while UI tests ensure end-user workflows function correctly.
+
+### Integration Tests Approach
+We used a **bottom-up integration testing approach** where:
+- Frontend integration tests verify interactions between React components, hooks, and context providers
+- Backend integration tests verify interactions between controllers and data models
+- Tests use appropriate mocking and stubbing to isolate the integration points being tested
+
+### Integration Tests - Workload Division
+
+#### Team Member 1: [Add Name and ID]
+**Frontend Integration Tests:**
+- `client/src/pages/HomePage.integration.test.js` - HomePage with useCategory hook and cart context interactions
+  - Tests category fetching, product filtering by category and price, multiple filter combinations, pagination
+  - Tests interaction between HomePage filters and product API responses
+  - **17 test cases**
+
+**Backend Integration Tests:**
+- `controllers/categoryController.integration.test.js` - Category operations with database
+  - Tests complete CRUD lifecycle, slug generation, duplicate validation, error handling
+  - **12 test cases**
+
+#### Team Member 2: [Add Name and ID]
+**Frontend Integration Tests:**
+- `client/src/pages/CartPage.integration.test.js` - CartPage with cart and auth context
+  - Tests cart items display, price calculations, item removal with context updates
+  - Tests localStorage persistence, user authentication flows
+  - **12 test cases**
+
+- `client/src/pages/Categories.integration.test.js` - Categories page with useCategory hook
+  - Tests hook integration, data rendering, link generation from API data
+  - **10 test cases**
+
+- `client/src/context/cart.integration.test.js` - Cart context with localStorage
+  - Tests context initialization with localStorage, state management across components
+  - **9 test cases**
+
+**Backend Integration Tests:**
+- `controllers/productController.integration.test.js` - Product operations with models
+  - Tests product CRUD lifecycle, filtering with categories and prices, search functionality
+  - Tests photo handling, related products, pagination
+  - **16 test cases**
+
+### UI/E2E Tests Approach
+We used **black-box testing** with Playwright to test end-user scenarios that span multiple components without relying on implementation details.
+
+### UI/E2E Tests - Workload Division
+
+#### Team Member 1: [Add Name and ID]
+**E2E Test File:** `e2e/ecommerce.spec.js`
+**Test Scenarios:**
+- Category browsing: Navigate categories page, click categories, view products
+- Product filtering: Filter by category, price range, multiple filters, reset filters
+- Search functionality: Search products by keyword
+- Cart operations: Add to cart, view cart, remove items, view totals
+- **25 test scenarios covering:**
+  - Page navigation and loading
+  - User interactions (clicks, form inputs)
+  - State persistence (localStorage)
+  - Multi-step user workflows
+
+### Running Integration Tests
+```bash
+# Run all tests (including integration tests)
+npm run test
+
+# Run only backend integration tests
+npm run test:backend
+
+# Run only frontend integration tests
+npm run test:frontend
+
+# Run with coverage
+npm run test:coverage
+```
+
+### Running UI/E2E Tests
+```bash
+# Install Playwright (if not already installed)
+npm install --save-dev @playwright/test
+
+# Run Playwright tests
+npx playwright test
+
+# Run tests in UI mode
+npx playwright test --ui
+
+# Run specific test file
+npx playwright test e2e/ecommerce.spec.js
+
+# Generate HTML report
+npx playwright show-report
+```
+
+### Test Coverage Summary
+- **Integration Tests**: 76 test cases covering frontend and backend component interactions
+- **UI/E2E Tests**: 25 end-to-end scenarios covering user workflows
+- **Components Tested**: HomePage, CartPage, Categories, cart context, categoryController, productController
+- **Test Methodology**: 
+  - Integration: White-box testing with mocks/stubs at integration boundaries
+  - UI: Black-box testing of complete user scenarios
+
+### Bugs Found & Fixed
+All tests should pass. If bugs are discovered during testing, they should be documented and fixed before submission.
+
+### Individual Contributions
+Each team member has added comments in their test files with their name and student ID:
+```javascript
+// [Your Name], [Your Student ID]
+```
+
+**Note:** Replace [Add Name and ID] with actual team member information and update test case counts as needed based on actual implementation.
