@@ -11,3 +11,5 @@ node_modules
 
 # SonarQube reports
 /sonar-project.properties
+.scannerwork
+
