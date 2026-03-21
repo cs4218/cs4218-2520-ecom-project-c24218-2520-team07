@@ -47,7 +47,10 @@ describe('Orders Component Frontend Integration Tests', () => {
       })
     );
 
-    axios.get.mockResolvedValueOnce({ data: mockOrders });
+    axios.get.mockImplementation((url) => {
+        if (url === '/api/v1/auth/orders') return Promise.resolve({ data: mockOrders });
+        return Promise.resolve({ data: { success: true, category: [] } });
+    });
 
     render(
       <AuthProvider>
