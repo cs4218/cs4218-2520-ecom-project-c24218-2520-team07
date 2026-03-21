@@ -36,4 +36,9 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("users", userSchema);
+// Lin Bin A0258760W
+// Using a named export (`export const userModel`) instead of `export default`
+// allows us to import the model consistently across tests and avoids issues
+// with destructuring in ESM. This ensures that when we do `import { userModel } from "./userModel.js"`,
+// we get the actual Mongoose model constructor and can create instances correctly.
+export const userModel = mongoose.model("User", userSchema);

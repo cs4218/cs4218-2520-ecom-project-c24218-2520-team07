@@ -5,6 +5,11 @@ module.exports = {
   // when testing backend
   testEnvironment: "node",
 
+  transform: {
+    "^.+\\.jsx?$": "babel-jest",
+  },
+
+
   // which test to run
   testMatch: [
     "<rootDir>/controllers/*.test.js", 

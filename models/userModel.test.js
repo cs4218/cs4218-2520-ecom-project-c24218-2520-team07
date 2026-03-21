@@ -1,7 +1,7 @@
 // Goh En Rui Ryann A0252528A
 
 import { describe, expect, test } from "@jest/globals";
-import User from "./userModel.js";
+import { userModel } from "./userModel.js";
 
 const baseUser = {
   name: "Alice",
@@ -19,7 +19,7 @@ describe("userModel", () => {
       // Arrange
       const data = { ...baseUser };
       delete data[field];
-      const user = new User(data);
+      const user = new userModel(data);
 
       // Act
       const error = user.validateSync();
@@ -31,7 +31,7 @@ describe("userModel", () => {
 
   test("defaults role to 0", () => {
     // Arrange
-    const user = new User(baseUser);
+    const user = new userModel(baseUser);
 
     // Act
     // No additional action required.
@@ -42,7 +42,7 @@ describe("userModel", () => {
 
   test("trims name", () => {
     // Arrange
-    const user = new User({ ...baseUser, name: "  Alice  " });
+    const user = new userModel({ ...baseUser, name: "  Alice  " });
 
     // Act
     user.validateSync();

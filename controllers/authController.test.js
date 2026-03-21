@@ -10,8 +10,8 @@ import {
   getOrdersController,
   getAllOrdersController,
   orderStatusController,
-} from "../controllers/authController.js";
-import userModel from "../models/userModel.js";
+} from "./authController.js";
+import { userModel } from "../models/userModel.js";
 import orderModel from "../models/orderModel.js";
 import JWT from "jsonwebtoken";
 import { hashPassword, comparePassword } from "../helpers/authHelper.js";
