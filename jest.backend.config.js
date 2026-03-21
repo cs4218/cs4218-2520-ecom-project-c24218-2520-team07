@@ -5,6 +5,11 @@ export default {
   // when testing backend
   testEnvironment: "node",
 
+  transform: {
+    "^.+\\.jsx?$": "babel-jest",
+  },
+
+
   // which test to run
   testMatch: ["<rootDir>/controllers/*.test.js", "<rootDir>/models/*.test.js", "<rootDir>/helpers/*.test.js", "<rootDir>/middlewares/*.test.js"],
 
