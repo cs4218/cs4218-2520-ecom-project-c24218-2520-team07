@@ -233,7 +233,7 @@ describe("productController Integration Tests", () => {
         expect.objectContaining({ name: "Gaming Laptop Pro" }),
         { new: true }
       );
-      expect(res.status).toHaveBeenCalledWith(200);
+      expect(res.status).toHaveBeenCalledWith(201);
     });
 
     test("deletes product from database", async () => {
@@ -351,7 +351,9 @@ describe("productController Integration Tests", () => {
         { _id: "p2", name: "Budget Laptop", description: "Affordable laptop" },
       ];
 
-      productModel.find.mockResolvedValueOnce(searchResults);
+      productModel.find.mockReturnValueOnce({
+        select: jest.fn().mockResolvedValueOnce(searchResults),
+      });
 
       await searchProductController(req, res);
 
@@ -361,6 +363,7 @@ describe("productController Integration Tests", () => {
           { description: { $regex: "laptop", $options: "i" } },
         ],
       });
+      expect(res.json).toHaveBeenCalledWith(searchResults);
     });
   });
 
