@@ -1,4 +1,3 @@
-// Team Member Name, Student ID
 // UI/E2E Tests using Playwright
 
 import { test, expect } from '@playwright/test';
