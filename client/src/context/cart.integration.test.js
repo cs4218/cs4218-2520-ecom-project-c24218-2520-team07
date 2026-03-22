@@ -1,4 +1,3 @@
-// Team Member Name, Student ID
 // Integration tests for cart context with localStorage
 
 import React from "react";
@@ -479,3 +478,5 @@ describe("CartContext Integration Tests", () => {
     });
   });
 });
+
+// Low Han Lynn A0257099M
