@@ -5,6 +5,9 @@ export default { // do not change
   // when testing backend
   testEnvironment: "node",
 
+  // setup files
+  setupFiles: ["<rootDir>/integration-tests/setup.js"],
+
   // which test to run
   testMatch: ["<rootDir>/integration-tests/**/*.test.mjs"],
 
