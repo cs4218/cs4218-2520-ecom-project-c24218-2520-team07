@@ -21,6 +21,7 @@ export default function () {
 
   const res = http.post(`${BASE_URL}/api/v1/auth/login`, payload, {
     headers: { "Content-Type": "application/json" },
+    tags: { endpoint: "login" },
   });
 
   check(res, {

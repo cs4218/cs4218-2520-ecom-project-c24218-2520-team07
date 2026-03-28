@@ -11,7 +11,9 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get(`${BASE_URL}/api/v1/product/get-product`);
+  const res = http.get(`${BASE_URL}/api/v1/product/get-product`, {
+    tags: { endpoint: "get-product" }, // added tag
+  });
 
   check(res, {
     "products fetched": (r) => r.status === 200,
