@@ -134,7 +134,7 @@ To begin unit testing with Jest in your project, follow these steps:
      npm run test
      ```
 
-## 6. Team Contribution Breakdown
+## 6. MS1 Team Contribution Breakdown (Unit Test)
 
 ### Lin Bin (A0258760W)
 
@@ -283,3 +283,76 @@ To begin unit testing with Jest in your project, follow these steps:
 ## 7. MS1 CI URL
 
 **MS1 CI URL:** https://github.com/cs4218/cs4218-2520-ecom-project-c24218-2520-team07/actions/runs/22291339585/job/64479023579
+
+## 8. MS2 Team Contribution Breakdown (Integration & UI Test)
+
+### Lin Bin (A0258760W)
+
+**Integration Tests:**
+
+- integration-tests/forgotPasswordIntegration.test.mjs
+- integration-tests/loginIntegration.test.mjs
+- integration-tests/registerIntegration.test.mjs
+
+**UI tests:**
+
+- ui-tests/adminDashboard.spec.js
+- ui-tests/forgotPassword.spec.js
+- ui-tests/login.spec.js
+- ui-tests/register.spec.js
+
+### Goh En Rui Ryann (A0252528A)
+
+**Integration Tests:**
+
+- adminOrdersProductsIntegration.test.mjs
+- categoryIntegration.test.mjs
+- productIntegration.test.mjs
+
+**UI tests:**
+
+- adminOrders.spec.js
+- productCreation.spec.js
+
+### Lim Yih Fei (A0256993J)
+
+**Integration Tests:**
+
+- src/integration-tests/Orders.integration.test.js
+- src/integration-tests/Profile.integration.test.js
+- src/integration-tests/Users.integration.test.js
+- integration-tests/orderIntegration.test.mjs
+
+**UI tests:**
+
+- ui-tests/adminUsers.spec.js
+- ui-tests/orders.spec.js
+- ui-tests/profile.spec.js
+- ui-tests/search.spec.js
+
+### Cleon Tan De Xuan (A0252030B)
+
+**Integration Tests:**
+
+- client/src/integration-tests/CategoryProduct.integration.test.js
+- client/src/integration-tests/Header.integration.test.js
+- client/src/integration-tests/ProductDetails.integration.test.js
+
+**UI tests:**
+
+- headerNavigation.spec.js
+- productBrowsing.spec.js
+
+### Low Han, Lynn (A0257099M)
+
+**Integration Tests:**
+
+- cart.integration.test.js
+- cartPage.integration.test.js
+- Categories.integration.test.js
+- HomePage.integration.test.js
+- categoryController.integration.test.js
+
+**UI tests:**
+
+- ecommerce.spec.js
