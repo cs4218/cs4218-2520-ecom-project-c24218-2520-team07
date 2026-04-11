@@ -66,7 +66,20 @@ describe("orderModel", () => {
     expect(order.status).toBe("Shipped");
   });
 
-  test("accepts valid status 'deliverd'", () => {
+  test("accepts valid status 'delivered'", () => {
+    const order = new orderModel({
+      products: [new mongoose.Types.ObjectId()],
+      buyer: new mongoose.Types.ObjectId(),
+      payment: {},
+      status: "delivered",
+    });
+
+    const error = order.validateSync();
+    expect(error).toBeUndefined();
+    expect(order.status).toBe("delivered");
+  });
+
+  test("rejects misspelled status 'deliverd'", () => {
     const order = new orderModel({
       products: [new mongoose.Types.ObjectId()],
       buyer: new mongoose.Types.ObjectId(),
@@ -74,7 +87,8 @@ describe("orderModel", () => {
       status: "deliverd",
     });
 
-    expect(order.status).toBe("deliverd");
+    const error = order.validateSync();
+    expect(error).toBeDefined();
   });
 
   test("accepts valid status 'cancel'", () => {
