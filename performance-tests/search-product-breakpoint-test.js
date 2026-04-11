@@ -1,3 +1,12 @@
+/**
+ * Performance Breakpoint Test - Search Product Endpoint
+ * Written by: Goh En Rui Ryann (A0252528A)
+ * 
+ * Breakpoint capacity test to determine maximum concurrent users
+ * before API performance degrades below acceptable thresholds.
+ * Test aborts automatically when failure rate or latency exceeds limits.
+ */
+
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.2/index.js';
