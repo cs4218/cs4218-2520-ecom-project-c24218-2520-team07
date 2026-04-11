@@ -34,8 +34,8 @@ describe("Auth Middleware", () => {
     });
 
     it("should log error and not call next() when token is invalid", () => {
-      req.headers.authorization = "invalidToken";
-      
+      req.headers.authorization = "Bearer invalidToken";
+
       const consoleSpy = jest
         .spyOn(console, "log")
         .mockImplementation(() => {});
@@ -46,7 +46,7 @@ describe("Auth Middleware", () => {
 
       requireSignIn(req, res, next);
 
-      expect(consoleSpy).toHaveBeenCalledWith(expect.any(Error));
+      expect(consoleSpy).toHaveBeenCalledWith("JWT error:", expect.any(Error));
       expect(next).not.toHaveBeenCalled();
 
       consoleSpy.mockRestore();
@@ -59,8 +59,13 @@ describe("Auth Middleware", () => {
 
       requireSignIn(req, res, next);
 
-      expect(consoleSpy).toHaveBeenCalledWith(expect.any(Error));
+      expect(consoleSpy).not.toHaveBeenCalled();
       expect(next).not.toHaveBeenCalled();
+      expect(res.status).toHaveBeenCalledWith(401);
+      expect(res.send).toHaveBeenCalledWith({
+        success: false,
+        message: "Authorization token missing",
+      });
 
       consoleSpy.mockRestore();
     });
