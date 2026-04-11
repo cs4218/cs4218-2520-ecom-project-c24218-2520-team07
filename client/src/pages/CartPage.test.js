@@ -200,6 +200,45 @@ describe("CartPage", () => {
     );
   });
 
+  it("does not remove the wrong item when the requested cart item id is missing", () => {
+    const { useCart } = require("../context/cart");
+    let firstItemIdReads = 0;
+    const unstableCartItem = {
+      ...stuffInCart[0],
+    };
+    Object.defineProperty(unstableCartItem, "_id", {
+      get() {
+        firstItemIdReads += 1;
+        if (firstItemIdReads <= 2) {
+          return "ghost-item";
+        }
+        if (firstItemIdReads === 3) {
+          return "missing-item";
+        }
+        return undefined;
+      },
+    });
+
+    useCart.mockReturnValue([
+      [
+        unstableCartItem,
+        stuffInCart[1],
+      ],
+      mockSetCart,
+    ]);
+
+    render(
+      <MemoryRouter>
+        <CartPage />
+      </MemoryRouter>
+    );
+
+    fireEvent.click(screen.getAllByText("Remove")[0]);
+
+    expect(mockSetCart).not.toHaveBeenCalled();
+    expect(window.localStorage.setItem).not.toHaveBeenCalled();
+  });
+
   it("update address goes to profile when logged in", () => {
     const { useAuth } = require("../context/auth");
     useAuth.mockReturnValue([
