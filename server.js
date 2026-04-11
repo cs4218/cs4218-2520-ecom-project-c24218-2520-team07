@@ -11,11 +11,6 @@ import cors from "cors";
 // configure env
 dotenv.config();
 
-//database config
-if (process.env.NODE_ENV !== "test") {
-  connectDB();
-}
-
 const app = express();
 
 //middlewares
@@ -33,11 +28,18 @@ let server;
 if (process.env.NODE_ENV !== "test") {
   const PORT = process.env.PORT || 6060;
   console.log("PORT: ", PORT);
-  server = app.listen(PORT, () => {
-    console.log(
-      `Server running on ${process.env.DEV_MODE} mode on ${PORT}`.bgCyan.white
-    );
-  });
+  connectDB()
+    .then(() => {
+      server = app.listen(PORT, () => {
+        console.log(
+          `Server running on ${process.env.DEV_MODE} mode on ${PORT}`.bgCyan.white
+        );
+      });
+    })
+    .catch((error) => {
+      console.error(`Failed to start server: ${error.message}`.bgRed.white);
+      process.exit(1);
+    });
 }
 
 // Export both app and server

@@ -1,0 +1,272 @@
+2026-04-06 00:49:22,830 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2026-04-06 00:49:22,846 INFO o.a.j.JMeter: Loading user properties from: /opt/homebrew/Cellar/jmeter/5.6.3/libexec/bin/user.properties
+2026-04-06 00:49:22,847 INFO o.a.j.JMeter: Loading system properties from: /opt/homebrew/Cellar/jmeter/5.6.3/libexec/bin/system.properties
+2026-04-06 00:49:22,847 INFO o.a.j.JMeter: Setting JMeter property: host=localhost
+2026-04-06 00:49:22,847 INFO o.a.j.JMeter: Setting JMeter property: port=6060
+2026-04-06 00:49:22,847 INFO o.a.j.JMeter: Setting JMeter property: priceFilter.users=100
+2026-04-06 00:49:22,847 INFO o.a.j.JMeter: Setting JMeter property: duration=60
+2026-04-06 00:49:22,847 INFO o.a.j.JMeter: Setting JMeter property: delay=0
+2026-04-06 00:49:22,847 INFO o.a.j.JMeter: Setting JMeter property: jmeter.save.saveservice.output_format=csv
+2026-04-06 00:49:22,851 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
+2026-04-06 00:49:22,851 INFO o.a.j.JMeter: Version 5.6.3
+2026-04-06 00:49:22,851 INFO o.a.j.JMeter: java.version=21.0.10
+2026-04-06 00:49:22,851 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2026-04-06 00:49:22,851 INFO o.a.j.JMeter: os.name=Mac OS X
+2026-04-06 00:49:22,851 INFO o.a.j.JMeter: os.arch=aarch64
+2026-04-06 00:49:22,851 INFO o.a.j.JMeter: os.version=14.5
+2026-04-06 00:49:22,851 INFO o.a.j.JMeter: file.encoding=UTF-8
+2026-04-06 00:49:22,851 INFO o.a.j.JMeter: java.awt.headless=true
+2026-04-06 00:49:22,851 INFO o.a.j.JMeter: Max memory     =1073741824
+2026-04-06 00:49:22,851 INFO o.a.j.JMeter: Available Processors =8
+2026-04-06 00:49:22,884 INFO o.a.j.JMeter: Default Locale=English (EN)
+2026-04-06 00:49:22,885 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2026-04-06 00:49:22,885 INFO o.a.j.JMeter: JMeterHome=/opt/homebrew/Cellar/jmeter/5.6.3/libexec
+2026-04-06 00:49:22,885 INFO o.a.j.JMeter: user.dir  =/Users/lowhanlynn/Documents/4218/cs4218-2520-ecom-project-c24218-2520-team07
+2026-04-06 00:49:22,885 INFO o.a.j.JMeter: PWD       =/Users/lowhanlynn/Documents/4218/cs4218-2520-ecom-project-c24218-2520-team07
+2026-04-06 00:49:22,886 INFO o.a.j.JMeter: IP: 127.0.0.1 Name: Lows-MacBook-Air-4.local FullName: localhost
+2026-04-06 00:49:22,900 INFO o.a.j.s.FileServer: Default base='/Users/lowhanlynn/Documents/4218/cs4218-2520-ecom-project-c24218-2520-team07'
+2026-04-06 00:49:22,901 INFO o.a.j.s.FileServer: Set new base='/Users/lowhanlynn/Documents/4218/cs4218-2520-ecom-project-c24218-2520-team07/load-testing'
+2026-04-06 00:49:23,008 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2026-04-06 00:49:23,028 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2026-04-06 00:49:23,030 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2026-04-06 00:49:23,031 INFO o.a.j.s.SaveService: Loading file: load-testing/homepage-price-filtering.jmx
+2026-04-06 00:49:23,054 INFO o.a.j.p.h.c.CookieManager: Settings: Delete null: true Check: true Allow variable: true Save: false Prefix: COOKIE_
+2026-04-06 00:49:23,058 INFO o.a.j.p.h.c.CacheManager: Will only cache the following methods: [GET]
+2026-04-06 00:49:23,075 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-04-06 00:49:23,075 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-04-06 00:49:23,075 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-04-06 00:49:23,075 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-04-06 00:49:23,075 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2026-04-06 00:49:23,075 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2026-04-06 00:49:23,093 INFO o.a.j.JMeter: Creating summariser <summary>
+2026-04-06 00:49:23,100 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-04-06 00:49:23,100 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-04-06 00:49:23,100 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-04-06 00:49:23,103 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2026-04-06 00:49:23,103 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2026-04-06 00:49:23,139 INFO o.a.j.r.ClassFinder: Will scan jar /opt/homebrew/Cellar/jmeter/5.6.3/libexec/lib/ext/jmeter-plugins-manager-1.9.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2026-04-06 00:49:23,249 INFO o.a.j.JMeter: Running test (1775407763249)
+2026-04-06 00:49:23,260 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Homepage Price Filter Users
+2026-04-06 00:49:23,260 INFO o.a.j.e.StandardJMeterEngine: Starting 100 threads for group Homepage Price Filter Users.
+2026-04-06 00:49:23,260 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-04-06 00:49:23,260 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=100 ramp-up=10 delayedStart=false
+2026-04-06 00:49:23,263 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-1
+2026-04-06 00:49:23,280 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-04-06 00:49:23,281 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-04-06 00:49:23,368 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-2
+2026-04-06 00:49:23,466 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-3
+2026-04-06 00:49:23,565 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-4
+2026-04-06 00:49:23,666 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-5
+2026-04-06 00:49:23,763 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-6
+2026-04-06 00:49:23,865 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-7
+2026-04-06 00:49:23,963 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-8
+2026-04-06 00:49:24,066 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-9
+2026-04-06 00:49:24,165 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-10
+2026-04-06 00:49:24,266 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-11
+2026-04-06 00:49:24,365 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-12
+2026-04-06 00:49:24,465 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-13
+2026-04-06 00:49:24,566 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-14
+2026-04-06 00:49:24,667 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-15
+2026-04-06 00:49:24,766 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-16
+2026-04-06 00:49:24,865 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-17
+2026-04-06 00:49:24,966 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-18
+2026-04-06 00:49:25,029 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = Lows-MacBook-Air-4.local
+2026-04-06 00:49:25,031 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2026-04-06 00:49:25,032 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2026-04-06 00:49:25,032 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to UTF-8
+2026-04-06 00:49:25,032 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2026-04-06 00:49:25,032 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2026-04-06 00:49:25,067 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-19
+2026-04-06 00:49:25,167 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-20
+2026-04-06 00:49:25,261 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-21
+2026-04-06 00:49:25,365 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-22
+2026-04-06 00:49:25,466 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-23
+2026-04-06 00:49:25,565 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-24
+2026-04-06 00:49:25,665 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-25
+2026-04-06 00:49:25,763 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-26
+2026-04-06 00:49:25,867 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-27
+2026-04-06 00:49:25,966 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-28
+2026-04-06 00:49:26,065 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-29
+2026-04-06 00:49:26,166 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-30
+2026-04-06 00:49:26,278 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-31
+2026-04-06 00:49:26,365 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-32
+2026-04-06 00:49:26,465 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-33
+2026-04-06 00:49:26,568 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-34
+2026-04-06 00:49:26,666 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-35
+2026-04-06 00:49:26,765 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-36
+2026-04-06 00:49:26,866 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-37
+2026-04-06 00:49:26,965 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-38
+2026-04-06 00:49:27,062 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-39
+2026-04-06 00:49:27,164 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-40
+2026-04-06 00:49:27,264 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-41
+2026-04-06 00:49:27,366 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-42
+2026-04-06 00:49:27,465 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-43
+2026-04-06 00:49:27,567 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-44
+2026-04-06 00:49:27,665 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-45
+2026-04-06 00:49:27,765 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-46
+2026-04-06 00:49:27,864 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-47
+2026-04-06 00:49:27,966 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-48
+2026-04-06 00:49:28,065 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-49
+2026-04-06 00:49:28,166 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-50
+2026-04-06 00:49:28,264 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-51
+2026-04-06 00:49:28,365 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-52
+2026-04-06 00:49:28,465 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-53
+2026-04-06 00:49:28,566 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-54
+2026-04-06 00:49:28,666 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-55
+2026-04-06 00:49:28,764 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-56
+2026-04-06 00:49:28,864 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-57
+2026-04-06 00:49:28,965 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-58
+2026-04-06 00:49:29,066 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-59
+2026-04-06 00:49:29,165 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-60
+2026-04-06 00:49:29,265 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-61
+2026-04-06 00:49:29,366 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-62
+2026-04-06 00:49:29,466 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-63
+2026-04-06 00:49:29,577 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-64
+2026-04-06 00:49:29,665 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-65
+2026-04-06 00:49:29,762 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-66
+2026-04-06 00:49:29,869 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-67
+2026-04-06 00:49:29,965 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-68
+2026-04-06 00:49:30,002 INFO o.a.j.r.Summariser: summary +     68 in 00:00:07 =   10.1/s Avg:   185 Min:   179 Max:   206 Err:     0 (0.00%) Active: 68 Started: 68 Finished: 0
+2026-04-06 00:49:30,062 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-69
+2026-04-06 00:49:30,176 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-70
+2026-04-06 00:49:30,265 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-71
+2026-04-06 00:49:30,365 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-72
+2026-04-06 00:49:30,466 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-73
+2026-04-06 00:49:30,563 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-74
+2026-04-06 00:49:30,665 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-75
+2026-04-06 00:49:30,766 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-76
+2026-04-06 00:49:30,863 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-77
+2026-04-06 00:49:30,974 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-78
+2026-04-06 00:49:31,065 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-79
+2026-04-06 00:49:31,165 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-80
+2026-04-06 00:49:31,273 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-81
+2026-04-06 00:49:31,365 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-82
+2026-04-06 00:49:31,465 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-83
+2026-04-06 00:49:31,565 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-84
+2026-04-06 00:49:31,666 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-85
+2026-04-06 00:49:31,761 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-86
+2026-04-06 00:49:31,865 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-87
+2026-04-06 00:49:31,965 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-88
+2026-04-06 00:49:32,065 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-89
+2026-04-06 00:49:32,163 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-90
+2026-04-06 00:49:32,265 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-91
+2026-04-06 00:49:32,365 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-92
+2026-04-06 00:49:32,465 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-93
+2026-04-06 00:49:32,566 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-94
+2026-04-06 00:49:32,667 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-95
+2026-04-06 00:49:32,765 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-96
+2026-04-06 00:49:32,865 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-97
+2026-04-06 00:49:32,965 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-98
+2026-04-06 00:49:33,065 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-99
+2026-04-06 00:49:33,163 INFO o.a.j.t.JMeterThread: Thread started: Homepage Price Filter Users 1-100
+2026-04-06 00:50:00,083 INFO o.a.j.r.Summariser: summary +   1324 in 00:00:30 =   44.0/s Avg:   188 Min:   169 Max:   594 Err:     0 (0.00%) Active: 100 Started: 100 Finished: 0
+2026-04-06 00:50:00,084 INFO o.a.j.r.Summariser: summary =   1392 in 00:00:37 =   37.8/s Avg:   188 Min:   169 Max:   594 Err:     0 (0.00%)
+2026-04-06 00:50:20,738 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-69
+2026-04-06 00:50:20,859 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-88
+2026-04-06 00:50:20,916 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-92
+2026-04-06 00:50:20,917 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-25
+2026-04-06 00:50:20,949 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-30
+2026-04-06 00:50:21,090 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-36
+2026-04-06 00:50:21,090 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-74
+2026-04-06 00:50:21,155 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-83
+2026-04-06 00:50:21,223 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-49
+2026-04-06 00:50:21,276 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-94
+2026-04-06 00:50:21,314 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-52
+2026-04-06 00:50:21,314 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-24
+2026-04-06 00:50:21,317 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-45
+2026-04-06 00:50:21,353 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-77
+2026-04-06 00:50:21,357 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-87
+2026-04-06 00:50:21,358 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-75
+2026-04-06 00:50:21,394 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-46
+2026-04-06 00:50:21,400 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-17
+2026-04-06 00:50:21,413 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-11
+2026-04-06 00:50:21,460 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-98
+2026-04-06 00:50:21,590 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-1
+2026-04-06 00:50:21,610 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-40
+2026-04-06 00:50:21,645 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-8
+2026-04-06 00:50:21,645 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-95
+2026-04-06 00:50:21,694 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-62
+2026-04-06 00:50:21,765 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-23
+2026-04-06 00:50:21,779 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-90
+2026-04-06 00:50:21,788 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-57
+2026-04-06 00:50:21,805 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-51
+2026-04-06 00:50:21,857 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-27
+2026-04-06 00:50:21,872 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-66
+2026-04-06 00:50:21,901 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-68
+2026-04-06 00:50:21,906 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-5
+2026-04-06 00:50:21,936 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-32
+2026-04-06 00:50:21,936 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-76
+2026-04-06 00:50:21,995 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-60
+2026-04-06 00:50:22,002 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-78
+2026-04-06 00:50:22,035 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-34
+2026-04-06 00:50:22,044 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-37
+2026-04-06 00:50:22,073 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-42
+2026-04-06 00:50:22,146 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-6
+2026-04-06 00:50:22,178 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-80
+2026-04-06 00:50:22,178 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-55
+2026-04-06 00:50:22,181 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-3
+2026-04-06 00:50:22,192 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-93
+2026-04-06 00:50:22,226 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-38
+2026-04-06 00:50:22,285 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-99
+2026-04-06 00:50:22,286 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-41
+2026-04-06 00:50:22,286 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-10
+2026-04-06 00:50:22,305 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-67
+2026-04-06 00:50:22,331 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-64
+2026-04-06 00:50:22,358 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-48
+2026-04-06 00:50:22,394 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-26
+2026-04-06 00:50:22,463 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-97
+2026-04-06 00:50:22,466 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-15
+2026-04-06 00:50:22,492 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-63
+2026-04-06 00:50:22,493 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-71
+2026-04-06 00:50:22,507 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-18
+2026-04-06 00:50:22,510 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-28
+2026-04-06 00:50:22,525 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-2
+2026-04-06 00:50:22,536 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-29
+2026-04-06 00:50:22,544 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-13
+2026-04-06 00:50:22,546 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-65
+2026-04-06 00:50:22,636 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-73
+2026-04-06 00:50:22,674 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-31
+2026-04-06 00:50:22,689 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-14
+2026-04-06 00:50:22,690 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-22
+2026-04-06 00:50:22,718 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-89
+2026-04-06 00:50:22,724 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-16
+2026-04-06 00:50:22,734 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-61
+2026-04-06 00:50:22,776 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-47
+2026-04-06 00:50:22,786 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-4
+2026-04-06 00:50:22,786 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-19
+2026-04-06 00:50:22,790 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-7
+2026-04-06 00:50:22,798 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-9
+2026-04-06 00:50:22,837 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-20
+2026-04-06 00:50:22,849 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-85
+2026-04-06 00:50:22,868 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-43
+2026-04-06 00:50:22,868 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-79
+2026-04-06 00:50:22,869 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-53
+2026-04-06 00:50:22,874 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-86
+2026-04-06 00:50:22,896 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-56
+2026-04-06 00:50:22,929 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-81
+2026-04-06 00:50:22,978 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-58
+2026-04-06 00:50:22,985 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-54
+2026-04-06 00:50:23,000 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-72
+2026-04-06 00:50:23,002 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-96
+2026-04-06 00:50:23,003 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-50
+2026-04-06 00:50:23,039 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-84
+2026-04-06 00:50:23,060 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-33
+2026-04-06 00:50:23,116 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-21
+2026-04-06 00:50:23,132 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-70
+2026-04-06 00:50:23,217 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-39
+2026-04-06 00:50:23,218 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-59
+2026-04-06 00:50:23,290 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Homepage Price Filter Users 1-12
+2026-04-06 00:50:23,290 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-12
+2026-04-06 00:50:23,313 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Homepage Price Filter Users 1-82
+2026-04-06 00:50:23,313 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-82
+2026-04-06 00:50:23,370 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Homepage Price Filter Users 1-91
+2026-04-06 00:50:23,371 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-91
+2026-04-06 00:50:23,371 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Homepage Price Filter Users 1-35
+2026-04-06 00:50:23,371 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-35
+2026-04-06 00:50:23,403 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Homepage Price Filter Users 1-100
+2026-04-06 00:50:23,403 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-100
+2026-04-06 00:50:23,403 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Homepage Price Filter Users 1-44
+2026-04-06 00:50:23,403 INFO o.a.j.t.JMeterThread: Thread finished: Homepage Price Filter Users 1-44
+2026-04-06 00:50:23,404 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2026-04-06 00:50:23,405 INFO o.a.j.r.Summariser: summary +   1088 in 00:00:23 =   46.7/s Avg:   183 Min:   171 Max:   231 Err:     0 (0.00%) Active: 0 Started: 100 Finished: 100
+2026-04-06 00:50:23,405 INFO o.a.j.r.Summariser: summary =   2480 in 00:01:00 =   41.2/s Avg:   186 Min:   169 Max:   594 Err:     0 (0.00%)

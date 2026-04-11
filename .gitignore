@@ -5,6 +5,8 @@ node_modules
 /playwright/.cache/
 
 .env
+.DS_Store
+jmeter.log
 
 # Jest coverage
 /coverage/
@@ -12,4 +14,3 @@ node_modules
 # SonarQube reports
 /sonar-project.properties
 .scannerwork
-

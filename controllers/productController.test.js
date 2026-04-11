@@ -1026,82 +1026,145 @@ describe("productController", () => {
     test("creates order and returns ok on success", async () => {
       const orderSave = jest.fn();
       orderModel.mockImplementationOnce(() => ({ save: orderSave }));
+      productModel.find.mockReturnValueOnce({
+        select: jest.fn().mockResolvedValue([
+          { _id: "p1", price: 100 },
+          { _id: "p2", price: 200 },
+        ]),
+      });
       braintree.__mockGateway.transaction.sale.mockImplementationOnce(
-        (payload, cb) => cb(null, { id: "t1" })
+        (payload, cb) => cb(null, { success: true, id: "t1" })
       );
-      // Arrange
       const req = {
         body: {
           nonce: "nonce",
-          cart: [{ price: 10 }, { price: 15 }],
+          cart: [
+            { _id: "p1", price: 1 },
+            { _id: "p2", price: 2 },
+          ],
         },
         user: { _id: "u1" },
       };
       const res = createRes();
 
-      // Act
-
       await brainTreePaymentController(req, res);
-
-      // Assert
 
       expect(braintree.__mockGateway.transaction.sale).toHaveBeenCalledWith(
         expect.objectContaining({
-          amount: 25,
+          amount: "300.00",
           paymentMethodNonce: "nonce",
         }),
         expect.any(Function)
       );
-      // Assert
       expect(orderModel).toHaveBeenCalledWith({
-        products: req.body.cart,
-        payment: { id: "t1" },
+        products: ["p1", "p2"],
+        payment: { success: true, id: "t1" },
         buyer: "u1",
       });
-      // Assert
       expect(orderSave).toHaveBeenCalledTimes(1);
-      // Assert
       expect(res.json).toHaveBeenCalledWith({ ok: true });
     });
 
     test("returns 500 on payment error", async () => {
+      productModel.find.mockReturnValueOnce({
+        select: jest.fn().mockResolvedValue([{ _id: "p1", price: 10 }]),
+      });
       braintree.__mockGateway.transaction.sale.mockImplementationOnce(
         (_, cb) => cb(new Error("pay"))
       );
-      // Arrange
-      const req = { body: { nonce: "nonce", cart: [] }, user: { _id: "u1" } };
+      const req = {
+        body: { nonce: "nonce", cart: [{ _id: "p1" }] },
+        user: { _id: "u1" },
+      };
       const res = createRes();
-
-      // Act
 
       await brainTreePaymentController(req, res);
 
-      // Assert
-
       expect(res.status).toHaveBeenCalledWith(500);
-      // Assert
-      expect(res.send).toHaveBeenCalledWith(expect.any(Error));
+      expect(res.send).toHaveBeenCalledWith(
+        expect.objectContaining({
+          success: false,
+          message: "Error while processing payment",
+          error: expect.any(Error),
+        })
+      );
     });
 
     test("logs error when payment throws", async () => {
       const consoleSpy = jest
         .spyOn(console, "log")
         .mockImplementation(() => {});
+      productModel.find.mockReturnValueOnce({
+        select: jest.fn().mockResolvedValue([{ _id: "p1", price: 10 }]),
+      });
       braintree.__mockGateway.transaction.sale.mockImplementationOnce(() => {
         throw new Error("boom");
       });
-      // Arrange
-      const req = { body: { nonce: "nonce", cart: [] }, user: { _id: "u1" } };
+      const req = {
+        body: { nonce: "nonce", cart: [{ _id: "p1" }] },
+        user: { _id: "u1" },
+      };
       const res = createRes();
-
-      // Act
 
       await brainTreePaymentController(req, res);
 
-      // Assert
-
       expect(consoleSpy).toHaveBeenCalledWith(expect.any(Error));
+      expect(res.status).toHaveBeenCalledWith(500);
       consoleSpy.mockRestore();
+    });
+
+    test("rejects tampered cart prices and charges trusted database prices", async () => {
+      productModel.find.mockReturnValueOnce({
+        select: jest.fn().mockResolvedValue([{ _id: "p1", price: 999 }]),
+      });
+      braintree.__mockGateway.transaction.sale.mockImplementationOnce(
+        (payload, cb) => cb(null, { success: true, id: "t1" })
+      );
+      orderModel.mockImplementationOnce(() => ({ save: jest.fn() }));
+
+      const req = {
+        body: {
+          nonce: "nonce",
+          cart: [{ _id: "p1", price: 1 }],
+        },
+        user: { _id: "u1" },
+      };
+      const res = createRes();
+
+      await brainTreePaymentController(req, res);
+
+      expect(braintree.__mockGateway.transaction.sale).toHaveBeenCalledWith(
+        expect.objectContaining({ amount: "999.00" }),
+        expect.any(Function)
+      );
+    });
+
+    test("does not create an order when Braintree returns an unsuccessful result", async () => {
+      const orderSave = jest.fn();
+      orderModel.mockImplementationOnce(() => ({ save: orderSave }));
+      productModel.find.mockReturnValueOnce({
+        select: jest.fn().mockResolvedValue([{ _id: "p1", price: 10 }]),
+      });
+      braintree.__mockGateway.transaction.sale.mockImplementationOnce(
+        (_, cb) => cb(null, { success: false, message: "declined" })
+      );
+
+      const req = {
+        body: { nonce: "nonce", cart: [{ _id: "p1" }] },
+        user: { _id: "u1" },
+      };
+      const res = createRes();
+
+      await brainTreePaymentController(req, res);
+
+      expect(orderSave).not.toHaveBeenCalled();
+      expect(res.status).toHaveBeenCalledWith(502);
+      expect(res.send).toHaveBeenCalledWith(
+        expect.objectContaining({
+          success: false,
+          message: "Payment was not successful",
+        })
+      );
     });
   });
 });

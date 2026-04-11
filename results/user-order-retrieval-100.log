@@ -1,0 +1,480 @@
+2026-04-06 00:45:41,548 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2026-04-06 00:45:41,575 INFO o.a.j.JMeter: Loading user properties from: /opt/homebrew/Cellar/jmeter/5.6.3/libexec/bin/user.properties
+2026-04-06 00:45:41,575 INFO o.a.j.JMeter: Loading system properties from: /opt/homebrew/Cellar/jmeter/5.6.3/libexec/bin/system.properties
+2026-04-06 00:45:41,576 INFO o.a.j.JMeter: Setting JMeter property: host=localhost
+2026-04-06 00:45:41,576 INFO o.a.j.JMeter: Setting JMeter property: port=6060
+2026-04-06 00:45:41,576 INFO o.a.j.JMeter: Setting JMeter property: userOrders.users=100
+2026-04-06 00:45:41,576 INFO o.a.j.JMeter: Setting JMeter property: userOrders.ramp=15
+2026-04-06 00:45:41,576 INFO o.a.j.JMeter: Setting JMeter property: duration=20
+2026-04-06 00:45:41,576 INFO o.a.j.JMeter: Setting JMeter property: delay=0
+2026-04-06 00:45:41,576 INFO o.a.j.JMeter: Setting JMeter property: jmeter.save.saveservice.output_format=csv
+2026-04-06 00:45:41,581 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
+2026-04-06 00:45:41,582 INFO o.a.j.JMeter: Version 5.6.3
+2026-04-06 00:45:41,582 INFO o.a.j.JMeter: java.version=21.0.10
+2026-04-06 00:45:41,582 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2026-04-06 00:45:41,582 INFO o.a.j.JMeter: os.name=Mac OS X
+2026-04-06 00:45:41,582 INFO o.a.j.JMeter: os.arch=aarch64
+2026-04-06 00:45:41,582 INFO o.a.j.JMeter: os.version=14.5
+2026-04-06 00:45:41,582 INFO o.a.j.JMeter: file.encoding=UTF-8
+2026-04-06 00:45:41,582 INFO o.a.j.JMeter: java.awt.headless=true
+2026-04-06 00:45:41,582 INFO o.a.j.JMeter: Max memory     =1073741824
+2026-04-06 00:45:41,582 INFO o.a.j.JMeter: Available Processors =8
+2026-04-06 00:45:41,591 INFO o.a.j.JMeter: Default Locale=English (EN)
+2026-04-06 00:45:41,592 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2026-04-06 00:45:41,592 INFO o.a.j.JMeter: JMeterHome=/opt/homebrew/Cellar/jmeter/5.6.3/libexec
+2026-04-06 00:45:41,592 INFO o.a.j.JMeter: user.dir  =/Users/lowhanlynn/Documents/4218/cs4218-2520-ecom-project-c24218-2520-team07
+2026-04-06 00:45:41,593 INFO o.a.j.JMeter: PWD       =/Users/lowhanlynn/Documents/4218/cs4218-2520-ecom-project-c24218-2520-team07
+2026-04-06 00:45:41,594 INFO o.a.j.JMeter: IP: 127.0.0.1 Name: Lows-MacBook-Air-4.local FullName: localhost
+2026-04-06 00:45:41,603 INFO o.a.j.s.FileServer: Default base='/Users/lowhanlynn/Documents/4218/cs4218-2520-ecom-project-c24218-2520-team07'
+2026-04-06 00:45:41,604 INFO o.a.j.s.FileServer: Set new base='/Users/lowhanlynn/Documents/4218/cs4218-2520-ecom-project-c24218-2520-team07/load-testing'
+2026-04-06 00:45:41,865 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2026-04-06 00:45:41,896 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2026-04-06 00:45:41,899 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2026-04-06 00:45:41,902 INFO o.a.j.s.SaveService: Loading file: load-testing/user-order-retrieval.jmx
+2026-04-06 00:45:41,974 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-04-06 00:45:41,975 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-04-06 00:45:41,975 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-04-06 00:45:41,975 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-04-06 00:45:41,975 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2026-04-06 00:45:41,975 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2026-04-06 00:45:42,012 INFO o.a.j.JMeter: Creating summariser <summary>
+2026-04-06 00:45:42,026 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-04-06 00:45:42,027 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-04-06 00:45:42,027 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-04-06 00:45:42,031 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2026-04-06 00:45:42,031 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2026-04-06 00:45:42,086 INFO o.a.j.r.ClassFinder: Will scan jar /opt/homebrew/Cellar/jmeter/5.6.3/libexec/lib/ext/jmeter-plugins-manager-1.9.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2026-04-06 00:45:42,304 INFO o.a.j.JMeter: Running test (1775407542304)
+2026-04-06 00:45:42,324 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : User Order Retrieval Users
+2026-04-06 00:45:42,324 INFO o.a.j.e.StandardJMeterEngine: Starting 100 threads for group User Order Retrieval Users.
+2026-04-06 00:45:42,324 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-04-06 00:45:42,324 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=100 ramp-up=15 delayedStart=false
+2026-04-06 00:45:42,369 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-1
+2026-04-06 00:45:42,370 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@327863769
+2026-04-06 00:45:42,394 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-04-06 00:45:42,394 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-04-06 00:45:42,521 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-2
+2026-04-06 00:45:42,522 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1165114138
+2026-04-06 00:45:42,666 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-3
+2026-04-06 00:45:42,666 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1215756336
+2026-04-06 00:45:42,816 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-4
+2026-04-06 00:45:42,816 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@772551415
+2026-04-06 00:45:42,960 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-5
+2026-04-06 00:45:42,961 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1102823925
+2026-04-06 00:45:43,111 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-6
+2026-04-06 00:45:43,112 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1871891264
+2026-04-06 00:45:43,260 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-7
+2026-04-06 00:45:43,260 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1200391019
+2026-04-06 00:45:43,410 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-8
+2026-04-06 00:45:43,410 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@565608394
+2026-04-06 00:45:43,558 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-9
+2026-04-06 00:45:43,558 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1163913257
+2026-04-06 00:45:43,696 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = Lows-MacBook-Air-4.local
+2026-04-06 00:45:43,699 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2026-04-06 00:45:43,700 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2026-04-06 00:45:43,700 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to UTF-8
+2026-04-06 00:45:43,700 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2026-04-06 00:45:43,700 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2026-04-06 00:45:43,707 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-10
+2026-04-06 00:45:43,708 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@295241155
+2026-04-06 00:45:43,849 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-11
+2026-04-06 00:45:43,849 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1250851776
+2026-04-06 00:45:43,998 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-12
+2026-04-06 00:45:43,998 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1661103477
+2026-04-06 00:45:44,147 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-13
+2026-04-06 00:45:44,148 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@610304166
+2026-04-06 00:45:44,300 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-14
+2026-04-06 00:45:44,300 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@714749477
+2026-04-06 00:45:44,450 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-15
+2026-04-06 00:45:44,450 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@100557477
+2026-04-06 00:45:44,599 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-16
+2026-04-06 00:45:44,599 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@829013270
+2026-04-06 00:45:44,749 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-17
+2026-04-06 00:45:44,750 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1389544399
+2026-04-06 00:45:44,899 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-18
+2026-04-06 00:45:44,899 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1706818893
+2026-04-06 00:45:45,049 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-19
+2026-04-06 00:45:45,049 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1183872726
+2026-04-06 00:45:45,196 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-20
+2026-04-06 00:45:45,196 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1115945299
+2026-04-06 00:45:45,347 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-21
+2026-04-06 00:45:45,348 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1966590304
+2026-04-06 00:45:45,496 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-22
+2026-04-06 00:45:45,496 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@554251241
+2026-04-06 00:45:45,641 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-23
+2026-04-06 00:45:45,642 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1242944579
+2026-04-06 00:45:45,795 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-24
+2026-04-06 00:45:45,796 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1871464086
+2026-04-06 00:45:45,945 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-25
+2026-04-06 00:45:45,945 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1658263162
+2026-04-06 00:45:46,091 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-26
+2026-04-06 00:45:46,092 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1993661562
+2026-04-06 00:45:46,240 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-27
+2026-04-06 00:45:46,241 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@2032986156
+2026-04-06 00:45:46,387 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-28
+2026-04-06 00:45:46,388 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@565430136
+2026-04-06 00:45:46,543 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-29
+2026-04-06 00:45:46,543 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1356701082
+2026-04-06 00:45:46,679 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-30
+2026-04-06 00:45:46,679 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1277810375
+2026-04-06 00:45:46,830 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-31
+2026-04-06 00:45:46,831 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@105979559
+2026-04-06 00:45:46,977 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-32
+2026-04-06 00:45:46,977 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1462555592
+2026-04-06 00:45:47,126 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-33
+2026-04-06 00:45:47,127 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1312849513
+2026-04-06 00:45:47,279 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-34
+2026-04-06 00:45:47,280 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@754999634
+2026-04-06 00:45:47,426 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-35
+2026-04-06 00:45:47,426 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@335058707
+2026-04-06 00:45:47,580 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-36
+2026-04-06 00:45:47,580 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@294130847
+2026-04-06 00:45:47,725 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-37
+2026-04-06 00:45:47,725 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@767817879
+2026-04-06 00:45:47,880 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-38
+2026-04-06 00:45:47,880 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1640295160
+2026-04-06 00:45:48,029 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-39
+2026-04-06 00:45:48,029 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@489235287
+2026-04-06 00:45:48,178 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-40
+2026-04-06 00:45:48,178 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@301536509
+2026-04-06 00:45:48,330 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-41
+2026-04-06 00:45:48,331 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1149042306
+2026-04-06 00:45:48,482 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-42
+2026-04-06 00:45:48,483 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@744820440
+2026-04-06 00:45:48,628 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-43
+2026-04-06 00:45:48,629 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1035233212
+2026-04-06 00:45:48,775 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-44
+2026-04-06 00:45:48,776 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@2000080832
+2026-04-06 00:45:48,929 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-45
+2026-04-06 00:45:48,929 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1628279344
+2026-04-06 00:45:49,080 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-46
+2026-04-06 00:45:49,080 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@106594776
+2026-04-06 00:45:49,231 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-47
+2026-04-06 00:45:49,231 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@519153703
+2026-04-06 00:45:49,388 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-48
+2026-04-06 00:45:49,389 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1255855012
+2026-04-06 00:45:49,529 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-49
+2026-04-06 00:45:49,530 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1181457386
+2026-04-06 00:45:49,680 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-50
+2026-04-06 00:45:49,681 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1112999018
+2026-04-06 00:45:49,829 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-51
+2026-04-06 00:45:49,830 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@2049078663
+2026-04-06 00:45:49,998 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-52
+2026-04-06 00:45:50,008 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1577833905
+2026-04-06 00:45:50,129 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-53
+2026-04-06 00:45:50,130 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1547000887
+2026-04-06 00:45:50,278 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-54
+2026-04-06 00:45:50,278 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@173282180
+2026-04-06 00:45:50,424 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-55
+2026-04-06 00:45:50,425 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@260052605
+2026-04-06 00:45:50,584 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-56
+2026-04-06 00:45:50,585 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@2059929206
+2026-04-06 00:45:50,728 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-57
+2026-04-06 00:45:50,728 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1615583273
+2026-04-06 00:45:50,875 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-58
+2026-04-06 00:45:50,875 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1461938536
+2026-04-06 00:45:51,029 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-59
+2026-04-06 00:45:51,030 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1847223020
+2026-04-06 00:45:51,180 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-60
+2026-04-06 00:45:51,180 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1839473527
+2026-04-06 00:45:51,325 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-61
+2026-04-06 00:45:51,325 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@429673616
+2026-04-06 00:45:51,482 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-62
+2026-04-06 00:45:51,483 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1262563019
+2026-04-06 00:45:51,629 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-63
+2026-04-06 00:45:51,629 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1710250077
+2026-04-06 00:45:51,783 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-64
+2026-04-06 00:45:51,783 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@329161791
+2026-04-06 00:45:51,929 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-65
+2026-04-06 00:45:51,929 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1518464124
+2026-04-06 00:45:52,080 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-66
+2026-04-06 00:45:52,080 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1822711788
+2026-04-06 00:45:52,224 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-67
+2026-04-06 00:45:52,224 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@409224401
+2026-04-06 00:45:52,384 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-68
+2026-04-06 00:45:52,384 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1372327974
+2026-04-06 00:45:52,527 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-69
+2026-04-06 00:45:52,527 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1033651961
+2026-04-06 00:45:52,680 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-70
+2026-04-06 00:45:52,680 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1267508208
+2026-04-06 00:45:52,830 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-71
+2026-04-06 00:45:52,830 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@11221963
+2026-04-06 00:45:52,980 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-72
+2026-04-06 00:45:52,981 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1950793651
+2026-04-06 00:45:53,126 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-73
+2026-04-06 00:45:53,126 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@76149014
+2026-04-06 00:45:53,291 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-74
+2026-04-06 00:45:53,291 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@953931844
+2026-04-06 00:45:53,429 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-75
+2026-04-06 00:45:53,430 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1486375452
+2026-04-06 00:45:53,578 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-76
+2026-04-06 00:45:53,578 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@14007744
+2026-04-06 00:45:53,724 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-77
+2026-04-06 00:45:53,724 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1291589230
+2026-04-06 00:45:53,877 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-78
+2026-04-06 00:45:53,878 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@818151892
+2026-04-06 00:45:54,026 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-79
+2026-04-06 00:45:54,026 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1520138981
+2026-04-06 00:45:54,179 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-80
+2026-04-06 00:45:54,179 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1019858030
+2026-04-06 00:45:54,327 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-81
+2026-04-06 00:45:54,327 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@2018183815
+2026-04-06 00:45:54,479 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-82
+2026-04-06 00:45:54,480 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1748773217
+2026-04-06 00:45:54,628 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-83
+2026-04-06 00:45:54,628 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@140975515
+2026-04-06 00:45:54,780 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-84
+2026-04-06 00:45:54,781 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@759970313
+2026-04-06 00:45:54,928 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-85
+2026-04-06 00:45:54,928 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@899873371
+2026-04-06 00:45:55,079 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-86
+2026-04-06 00:45:55,079 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@746691581
+2026-04-06 00:45:55,227 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-87
+2026-04-06 00:45:55,228 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1630481980
+2026-04-06 00:45:55,379 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-88
+2026-04-06 00:45:55,380 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@711309483
+2026-04-06 00:45:55,526 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-89
+2026-04-06 00:45:55,526 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@607366391
+2026-04-06 00:45:55,676 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-90
+2026-04-06 00:45:55,677 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1474115896
+2026-04-06 00:45:55,827 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-91
+2026-04-06 00:45:55,827 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@854862646
+2026-04-06 00:45:55,974 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-92
+2026-04-06 00:45:55,975 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1920596039
+2026-04-06 00:45:56,129 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-93
+2026-04-06 00:45:56,130 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@824277865
+2026-04-06 00:45:56,279 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-94
+2026-04-06 00:45:56,280 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1990923227
+2026-04-06 00:45:56,427 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-95
+2026-04-06 00:45:56,427 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@677052222
+2026-04-06 00:45:56,577 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-96
+2026-04-06 00:45:56,577 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1606576242
+2026-04-06 00:45:56,727 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-97
+2026-04-06 00:45:56,728 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@805570038
+2026-04-06 00:45:56,875 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-98
+2026-04-06 00:45:56,876 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@980763533
+2026-04-06 00:45:57,027 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-99
+2026-04-06 00:45:57,027 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@1825974124
+2026-04-06 00:45:57,175 INFO o.a.j.t.JMeterThread: Thread started: User Order Retrieval Users 1-100
+2026-04-06 00:45:57,177 INFO o.a.j.s.FileServer: Stored: load-testing/data/users.csv Alias: load-testing/data/users.csv@2139308640
+2026-04-06 00:45:59,764 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-91
+2026-04-06 00:45:59,765 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-4
+2026-04-06 00:46:00,046 INFO o.a.j.r.Summariser: summary +    382 in 00:00:18 =   21.5/s Avg:   338 Min:   174 Max:  1051 Err:     0 (0.00%) Active: 98 Started: 100 Finished: 2
+2026-04-06 00:46:00,100 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-31
+2026-04-06 00:46:00,140 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-90
+2026-04-06 00:46:00,267 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-2
+2026-04-06 00:46:00,357 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-8
+2026-04-06 00:46:00,372 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-14
+2026-04-06 00:46:00,373 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-23
+2026-04-06 00:46:00,578 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-68
+2026-04-06 00:46:00,707 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-70
+2026-04-06 00:46:00,738 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-35
+2026-04-06 00:46:00,738 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-56
+2026-04-06 00:46:00,739 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-87
+2026-04-06 00:46:00,739 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-81
+2026-04-06 00:46:00,739 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-17
+2026-04-06 00:46:00,739 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-94
+2026-04-06 00:46:00,744 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-86
+2026-04-06 00:46:00,745 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-89
+2026-04-06 00:46:00,800 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-45
+2026-04-06 00:46:00,811 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-53
+2026-04-06 00:46:00,811 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-57
+2026-04-06 00:46:00,879 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-62
+2026-04-06 00:46:00,880 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-58
+2026-04-06 00:46:00,882 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-10
+2026-04-06 00:46:00,896 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-76
+2026-04-06 00:46:00,900 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-100
+2026-04-06 00:46:00,941 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-69
+2026-04-06 00:46:00,999 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-30
+2026-04-06 00:46:01,043 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-65
+2026-04-06 00:46:01,044 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-50
+2026-04-06 00:46:01,048 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-16
+2026-04-06 00:46:01,059 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-51
+2026-04-06 00:46:01,098 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-93
+2026-04-06 00:46:01,122 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-25
+2026-04-06 00:46:01,151 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-26
+2026-04-06 00:46:01,195 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-15
+2026-04-06 00:46:01,202 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-83
+2026-04-06 00:46:01,258 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-46
+2026-04-06 00:46:01,305 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-73
+2026-04-06 00:46:01,389 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-74
+2026-04-06 00:46:01,394 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-80
+2026-04-06 00:46:01,408 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-92
+2026-04-06 00:46:01,410 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-67
+2026-04-06 00:46:01,410 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-66
+2026-04-06 00:46:01,425 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-77
+2026-04-06 00:46:01,443 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-97
+2026-04-06 00:46:01,443 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-63
+2026-04-06 00:46:01,455 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-32
+2026-04-06 00:46:01,472 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-20
+2026-04-06 00:46:01,485 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-22
+2026-04-06 00:46:01,544 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-64
+2026-04-06 00:46:01,734 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-85
+2026-04-06 00:46:01,737 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-29
+2026-04-06 00:46:01,738 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-39
+2026-04-06 00:46:01,745 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-54
+2026-04-06 00:46:01,745 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-12
+2026-04-06 00:46:01,746 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-72
+2026-04-06 00:46:01,746 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-37
+2026-04-06 00:46:01,771 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-38
+2026-04-06 00:46:01,802 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-42
+2026-04-06 00:46:01,803 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-44
+2026-04-06 00:46:01,872 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-47
+2026-04-06 00:46:01,947 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-98
+2026-04-06 00:46:01,979 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-28
+2026-04-06 00:46:02,020 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-34
+2026-04-06 00:46:02,029 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-79
+2026-04-06 00:46:02,039 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-33
+2026-04-06 00:46:02,040 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-43
+2026-04-06 00:46:02,082 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-41
+2026-04-06 00:46:02,093 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-82
+2026-04-06 00:46:02,141 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-24
+2026-04-06 00:46:02,156 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-60
+2026-04-06 00:46:02,174 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-78
+2026-04-06 00:46:02,181 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-95
+2026-04-06 00:46:02,211 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-19
+2026-04-06 00:46:02,252 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-18
+2026-04-06 00:46:02,266 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-11
+2026-04-06 00:46:02,305 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-75
+2026-04-06 00:46:02,320 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-49
+2026-04-06 00:46:02,321 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-99
+2026-04-06 00:46:02,322 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-71
+2026-04-06 00:46:02,330 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-9
+2026-04-06 00:46:02,356 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-36
+2026-04-06 00:46:02,394 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-59
+2026-04-06 00:46:02,395 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-59
+2026-04-06 00:46:02,426 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-52
+2026-04-06 00:46:02,426 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-52
+2026-04-06 00:46:02,437 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-6
+2026-04-06 00:46:02,437 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-6
+2026-04-06 00:46:02,649 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-88
+2026-04-06 00:46:02,649 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-88
+2026-04-06 00:46:02,694 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-84
+2026-04-06 00:46:02,694 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-84
+2026-04-06 00:46:02,739 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-48
+2026-04-06 00:46:02,740 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-48
+2026-04-06 00:46:02,742 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-96
+2026-04-06 00:46:02,742 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-5
+2026-04-06 00:46:02,742 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-40
+2026-04-06 00:46:02,742 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-96
+2026-04-06 00:46:02,742 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-40
+2026-04-06 00:46:02,742 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-5
+2026-04-06 00:46:02,752 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-13
+2026-04-06 00:46:02,753 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-13
+2026-04-06 00:46:02,789 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-7
+2026-04-06 00:46:02,789 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-7
+2026-04-06 00:46:02,861 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-1
+2026-04-06 00:46:02,861 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-1
+2026-04-06 00:46:02,926 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-55
+2026-04-06 00:46:02,926 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-55
+2026-04-06 00:46:02,946 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-21
+2026-04-06 00:46:02,946 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-21
+2026-04-06 00:46:02,989 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-61
+2026-04-06 00:46:02,989 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-61
+2026-04-06 00:46:03,009 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-3
+2026-04-06 00:46:03,009 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-3
+2026-04-06 00:46:03,044 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: User Order Retrieval Users 1-27
+2026-04-06 00:46:03,044 INFO o.a.j.t.JMeterThread: Thread finished: User Order Retrieval Users 1-27
+2026-04-06 00:46:03,044 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@2049078663
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@744820440
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1518464124
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1658263162
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1628279344
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@565608394
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@409224401
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1950793651
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@11221963
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@2139308640
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@610304166
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@772551415
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1183872726
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1165114138
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1250851776
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1748773217
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@818151892
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@76149014
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1242944579
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1640295160
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1990923227
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1966590304
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@429673616
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@754999634
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1706818893
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@565430136
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1389544399
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@14007744
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@554251241
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1710250077
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1474115896
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@106594776
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1163913257
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1112999018
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1462555592
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1825974124
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@295241155
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@294130847
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1291589230
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@607366391
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@105979559
+2026-04-06 00:46:03,045 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1312849513
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1871891264
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1993661562
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@173282180
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1019858030
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1149042306
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1577833905
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1920596039
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@805570038
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1615583273
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1102823925
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@327863769
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1200391019
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@767817879
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@2032986156
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1461938536
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1267508208
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1630481980
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1215756336
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@2000080832
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@746691581
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1372327974
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@824277865
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1871464086
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@140975515
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1277810375
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1035233212
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1262563019
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1356701082
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1839473527
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@980763533
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@100557477
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@301536509
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1661103477
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@854862646
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1520138981
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1822711788
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@714749477
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@759970313
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@677052222
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@335058707
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1606576242
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@953931844
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@2059929206
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@2018183815
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@519153703
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@489235287
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1115945299
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1255855012
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1847223020
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1547000887
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1033651961
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@711309483
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@899873371
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@260052605
+2026-04-06 00:46:03,046 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1181457386
+2026-04-06 00:46:03,047 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@329161791
+2026-04-06 00:46:03,047 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@829013270
+2026-04-06 00:46:03,047 INFO o.a.j.s.FileServer: Close: load-testing/data/users.csv@1486375452
+2026-04-06 00:46:03,047 INFO o.a.j.r.Summariser: summary +    114 in 00:00:03 =   38.0/s Avg:   594 Min:   181 Max:  1266 Err:     0 (0.00%) Active: 0 Started: 100 Finished: 100
+2026-04-06 00:46:03,048 INFO o.a.j.r.Summariser: summary =    496 in 00:00:21 =   23.9/s Avg:   397 Min:   174 Max:  1266 Err:     0 (0.00%)

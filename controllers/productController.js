@@ -9,13 +9,22 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-//payment gateway
-var gateway = new braintree.BraintreeGateway({
-  environment: braintree.Environment.Sandbox,
-  merchantId: process.env.BRAINTREE_MERCHANT_ID,
-  publicKey: process.env.BRAINTREE_PUBLIC_KEY,
-  privateKey: process.env.BRAINTREE_PRIVATE_KEY,
-});
+const hasBraintreeConfig =
+  process.env.NODE_ENV === "test" ||
+  process.env.BRAINTREE_MERCHANT_ID &&
+  process.env.BRAINTREE_PUBLIC_KEY &&
+  process.env.BRAINTREE_PRIVATE_KEY;
+
+// Initialize the gateway only when payment credentials are present so
+// non-payment features can still run in local/dev environments.
+const gateway = hasBraintreeConfig
+  ? new braintree.BraintreeGateway({
+      environment: braintree.Environment.Sandbox,
+      merchantId: process.env.BRAINTREE_MERCHANT_ID,
+      publicKey: process.env.BRAINTREE_PUBLIC_KEY,
+      privateKey: process.env.BRAINTREE_PRIVATE_KEY,
+    })
+  : null;
 
 export const createProductController = async (req, res) => {
   try {
@@ -199,7 +208,7 @@ export const productFiltersController = async (req, res) => {
     let args = {};
     if (checked.length > 0) args.category = checked;
     if (radio.length) args.price = { $gte: radio[0], $lte: radio[1] };
-    const products = await productModel.find(args);
+    const products = await productModel.find(args).select("-photo");
     res.status(200).send({
       success: true,
       products,
@@ -330,6 +339,12 @@ export const productCategoryController = async (req, res) => {
 //token
 export const braintreeTokenController = async (req, res) => {
   try {
+    if (!gateway) {
+      return res.status(503).send({
+        success: false,
+        message: "Braintree is not configured",
+      });
+    }
     gateway.clientToken.generate({}, function (err, response) {
       if (err) {
         res.status(500).send(err);
@@ -345,33 +360,86 @@ export const braintreeTokenController = async (req, res) => {
 //payment
 export const brainTreePaymentController = async (req, res) => {
   try {
+    if (!gateway) {
+      return res.status(503).send({
+        success: false,
+        message: "Braintree is not configured",
+      });
+    }
     const { nonce, cart } = req.body;
-    let total = 0;
-    cart.map((i) => {
-      total += i.price;
-    });
-    let newTransaction = gateway.transaction.sale(
-      {
-        amount: total,
-        paymentMethodNonce: nonce,
-        options: {
-          submitForSettlement: true,
-        },
-      },
-      function (error, result) {
-        if (result) {
-          const order = new orderModel({
-            products: cart,
-            payment: result,
-            buyer: req.user._id,
-          }).save();
-          res.json({ ok: true });
-        } else {
-          res.status(500).send(error);
-        }
-      }
+    if (!nonce || !Array.isArray(cart) || cart.length === 0) {
+      return res.status(400).send({
+        success: false,
+        message: "A payment nonce and cart items are required",
+      });
+    }
+
+    const cartProductIds = cart.map((item) => item?._id || item?.id).filter(Boolean);
+    if (cartProductIds.length !== cart.length) {
+      return res.status(400).send({
+        success: false,
+        message: "Each cart item must include a valid product id",
+      });
+    }
+
+    const products = await productModel
+      .find({ _id: { $in: [...new Set(cartProductIds)] } })
+      .select("_id price");
+    const productsById = new Map(
+      products.map((product) => [String(product._id), product])
     );
+
+    let total = 0;
+    for (const productId of cartProductIds) {
+      const product = productsById.get(String(productId));
+      if (!product) {
+        return res.status(400).send({
+          success: false,
+          message: "Cart contains an invalid product",
+        });
+      }
+      total += Number(product.price);
+    }
+
+    const result = await new Promise((resolve, reject) => {
+      gateway.transaction.sale(
+        {
+          amount: total.toFixed(2),
+          paymentMethodNonce: nonce,
+          options: {
+            submitForSettlement: true,
+          },
+        },
+        (error, saleResult) => {
+          if (error) {
+            return reject(error);
+          }
+          return resolve(saleResult);
+        }
+      );
+    });
+
+    if (!result?.success) {
+      return res.status(502).send({
+        success: false,
+        message: "Payment was not successful",
+        error: result,
+      });
+    }
+
+    await new orderModel({
+      products: cartProductIds,
+      payment: result,
+      buyer: req.user._id,
+    }).save();
+
+    res.json({ ok: true });
   } catch (error) {
     console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error while processing payment",
+      error,
+    });
   }
 };
