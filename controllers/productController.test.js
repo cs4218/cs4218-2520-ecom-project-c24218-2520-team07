@@ -627,7 +627,8 @@ describe("productController", () => {
   describe("productFiltersController", () => {
     test("filters by category and price", async () => {
       const products = [{ _id: "p1" }];
-      productModel.find.mockResolvedValueOnce(products);
+      const query = createQuery("select", products);
+      productModel.find.mockReturnValueOnce(query);
       // Arrange
       const req = { body: { checked: ["c1"], radio: [10, 20] } };
       const res = createRes();
@@ -642,6 +643,7 @@ describe("productController", () => {
         category: ["c1"],
         price: { $gte: 10, $lte: 20 },
       });
+      expect(query.select).toHaveBeenCalledWith("-photo");
       // Assert
       expect(res.status).toHaveBeenCalledWith(200);
       // Assert
@@ -652,7 +654,9 @@ describe("productController", () => {
     });
 
     test("returns 400 on filter error", async () => {
-      productModel.find.mockRejectedValueOnce(new Error("db"));
+      const query = createQuery("select", null);
+      query.select.mockRejectedValueOnce(new Error("db"));
+      productModel.find.mockReturnValueOnce(query);
       // Arrange
       const req = { body: { checked: [], radio: [] } };
       const res = createRes();
