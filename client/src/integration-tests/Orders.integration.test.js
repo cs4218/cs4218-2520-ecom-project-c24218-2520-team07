@@ -1,6 +1,6 @@
 // Lim Yih Fei A0256993J
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import axios from 'axios';
 import { AuthProvider } from '../context/auth';
@@ -53,13 +53,15 @@ describe('Orders Component Frontend Integration Tests', () => {
         return Promise.resolve({ data: { success: true, category: [] } });
     });
 
-    render(
-      <AuthProvider>
-        <MemoryRouter>
-          <Orders />
-        </MemoryRouter>
-      </AuthProvider>
-    );
+    await act(async () => {
+      render(
+        <AuthProvider>
+          <MemoryRouter>
+            <Orders />
+          </MemoryRouter>
+        </AuthProvider>
+      );
+    });
 
     expect(screen.getByText('All Orders')).toBeInTheDocument();
 
@@ -76,13 +78,15 @@ describe('Orders Component Frontend Integration Tests', () => {
   });
 
   it('should not call the API if token is not available', async () => {
-    render(
-      <AuthProvider>
-        <MemoryRouter>
-          <Orders />
-        </MemoryRouter>
-      </AuthProvider>
-    );
+    await act(async () => {
+      render(
+        <AuthProvider>
+          <MemoryRouter>
+            <Orders />
+          </MemoryRouter>
+        </AuthProvider>
+      );
+    });
 
     expect(axios.get).not.toHaveBeenCalledWith('/api/v1/auth/orders');
 
