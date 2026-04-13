@@ -1,7 +1,7 @@
 // Lim Yih Fei A0256993J
 import { test, expect } from "@playwright/test";
 
-test.describe("Admin Users Dashboard UI Tests (True E2E)", () => {
+test.describe("Admin Users Dashboard UI Tests", () => {
   let standardUserEmail;
 
   test.beforeEach(async ({ page }) => {
@@ -27,7 +27,7 @@ test.describe("Admin Users Dashboard UI Tests (True E2E)", () => {
     await page.waitForURL(/\/$/);
   });
 
-  test("should block standard users from rendering the Admin Users dashboard (RBAC E2E)", async ({ page }) => {
+  test("should block standard users from rendering the Admin Users dashboard (RBAC)", async ({ page }) => {
     // Attempt to directly navigate to the protected admin page 
     await page.goto("http://localhost:3000/dashboard/admin/users");
 
