@@ -206,6 +206,34 @@ describe("ProductDetails", () => {
   });
 
   // Error handling
+  it("renders ADD TO CART button without invalid DOM property warnings", async () => {
+    // Bug: ProductDetails.js uses the HTML attribute `class` instead of the
+    // React JSX attribute `className` on the ADD TO CART button.
+    // React logs a console.error: "Warning: Invalid DOM property `class`.
+    // Did you mean `className`?" whenever this component renders.
+    const errorSpy = jest
+      .spyOn(console, "error")
+      .mockImplementation(() => {});
+
+    render(
+      <MemoryRouter>
+        <ProductDetails />
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(screen.getByText("ADD TO CART")).toBeInTheDocument();
+    });
+
+    const domWarning = errorSpy.mock.calls.find((args) =>
+      args.some(
+        (a) => typeof a === "string" && a.includes("Invalid DOM property")
+      )
+    );
+    expect(domWarning).toBeUndefined();
+    errorSpy.mockRestore();
+  });
+
   it("handles API error gracefully", async () => {
     const consoleSpy = jest.spyOn(console, "log").mockImplementation(() => {});
     axios.get.mockRejectedValue(new Error("API Error"));

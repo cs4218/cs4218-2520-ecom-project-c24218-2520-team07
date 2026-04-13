@@ -356,3 +356,13 @@ To begin unit testing with Jest in your project, follow these steps:
 **UI tests:**
 
 - ecommerce.spec.js
+
+## 9. MS3 Team Contribution Breakdown (Performance Test)
+
+| Team Member | Matric Number | Test Type |
+|---|---|---|
+| Lin Bin | A0258760W | Spike Tests |
+| Goh En Rui Ryann | A0252528A | Breakpoint Tests |
+| Lim Yih Fei | A0256993J | Volume Tests |
+| Cleon Tan De Xuan | A0252030B | Stress Tests |
+| Low Han, Lynn | A0257099M | Load Tests |

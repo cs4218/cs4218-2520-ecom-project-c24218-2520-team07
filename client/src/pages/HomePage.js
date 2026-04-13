@@ -109,13 +109,16 @@ const HomePage = () => {
   // get filtered product
   const filterProduct = async () => {
     try {
+      setLoading(true);
       const { data } = await axios.post("/api/v1/product/product-filters", {
         checked,
         radio,
       });
       setProducts(data?.products);
+      setLoading(false);
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
   return (

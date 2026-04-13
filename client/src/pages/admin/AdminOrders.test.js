@@ -8,7 +8,9 @@ import AdminOrders from "./AdminOrders";
 
 jest.mock("axios");
 
-jest.mock("moment", () => () => ({ fromNow: () => "a moment ago" }));
+jest.mock("moment", () => (date) => ({
+  fromNow: () => (date ? "a moment ago" : "Invalid date"),
+}));
 
 jest.mock("../../components/Layout", () => ({ children }) => (
   <div>{children}</div>
@@ -43,7 +45,7 @@ const mockOrders = [
     _id: "o1",
     status: "Not Process",
     buyer: { name: "Alice" },
-    createAt: "2024-01-01T00:00:00Z",
+    createdAt: "2024-01-01T00:00:00Z",
     payment: { success: true },
     products: [
       {
@@ -58,7 +60,7 @@ const mockOrders = [
     _id: "o2",
     status: "cancel",
     buyer: { name: "Bob" },
-    createAt: "2024-01-02T00:00:00Z",
+    createdAt: "2024-01-02T00:00:00Z",
     payment: { success: false },
     products: [
       {
@@ -182,5 +184,39 @@ describe("AdminOrders", () => {
       expect(consoleSpy).toHaveBeenCalled();
     });
     consoleSpy.mockRestore();
+  });
+
+  test("displays order date using createdAt field (not undefined)", async () => {
+    // Bug: AdminOrders.js uses o?.createAt instead of o?.createdAt.
+    // When the real API returns createdAt (from Mongoose timestamps), the date
+    // column receives undefined and moment renders "Invalid date".
+    axios.get.mockResolvedValueOnce({ data: mockOrders });
+    renderWithAuth();
+    await screen.findByText("Alice");
+
+    // Both order rows should display a valid relative date, not "Invalid date"
+    expect(screen.queryByText("Invalid date")).not.toBeInTheDocument();
+    const dateCells = screen.getAllByText("a moment ago");
+    expect(dateCells).toHaveLength(2);
+  });
+
+  test("renders order list without missing key prop warnings", async () => {
+    // Bug: The outer <div> rendered per order inside orders.map() has no key prop,
+    // causing React to log a "unique key" warning on every render.
+    const errorSpy = jest
+      .spyOn(console, "error")
+      .mockImplementation(() => {});
+    axios.get.mockResolvedValueOnce({ data: mockOrders });
+    renderWithAuth();
+    await screen.findByText("Alice");
+
+    const keyWarning = errorSpy.mock.calls.find((args) =>
+      args.some(
+        (a) =>
+          typeof a === "string" && a.includes("unique") && a.includes("key")
+      )
+    );
+    expect(keyWarning).toBeUndefined();
+    errorSpy.mockRestore();
   });
 });

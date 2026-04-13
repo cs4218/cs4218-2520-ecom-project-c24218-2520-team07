@@ -1,7 +1,7 @@
 // Lim Yih Fei A0256993J
 import { test, expect } from "@playwright/test";
 
-test.describe("Search Flow UI Tests (True E2E)", () => {
+test.describe("Search Flow UI Tests", () => {
   test.beforeEach(async ({ page }) => {
     // Start strictly from the homepage, the core interaction hub
     await page.goto("http://localhost:3000/");
