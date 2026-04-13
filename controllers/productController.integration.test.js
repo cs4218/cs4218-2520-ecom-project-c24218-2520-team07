@@ -277,7 +277,9 @@ describe("productController Integration Tests", () => {
         },
       ];
 
-      productModel.find.mockResolvedValueOnce(filteredProducts);
+      productModel.find.mockReturnValueOnce({
+        select: jest.fn().mockResolvedValueOnce(filteredProducts),
+      });
 
       await productFiltersController(req, res);
 
@@ -307,7 +309,9 @@ describe("productController Integration Tests", () => {
         { _id: "p2", name: "Product2", price: 450 },
       ];
 
-      productModel.find.mockResolvedValueOnce(filteredProducts);
+      productModel.find.mockReturnValueOnce({
+        select: jest.fn().mockResolvedValueOnce(filteredProducts),
+      });
 
       await productFiltersController(req, res);
 
@@ -330,7 +334,9 @@ describe("productController Integration Tests", () => {
         { _id: "p1", name: "Product1", category: "cat1", price: 500 },
       ];
 
-      productModel.find.mockResolvedValueOnce(filteredProducts);
+      productModel.find.mockReturnValueOnce({
+        select: jest.fn().mockResolvedValueOnce(filteredProducts),
+      });
 
       await productFiltersController(req, res);
 

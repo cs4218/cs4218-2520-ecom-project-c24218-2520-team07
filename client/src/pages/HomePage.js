@@ -16,9 +16,11 @@ const HomePage = () => {
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
   const [radio, setRadio] = useState([]);
+  const [selectedPrice, setSelectedPrice] = useState(null);
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const isFiltering = checked.length > 0 || radio.length > 0;
 
   //get all cat
   const getAllCategory = async () => {
@@ -35,12 +37,15 @@ const HomePage = () => {
   useEffect(() => {
     getAllCategory();
     getTotal();
+    getAllProducts(1);
   }, []);
   //get products
-  const getAllProducts = async () => {
+  const getAllProducts = async (pageToLoad = 1) => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(
+        `/api/v1/product/product-list/${pageToLoad}`
+      );
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
@@ -60,9 +65,9 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    if (page === 1) return;
+    if (page === 1 || isFiltering) return;
     loadMore();
-  }, [page]);
+  }, [page, isFiltering]);
   //load more
   const loadMore = async () => {
     try {
@@ -86,13 +91,20 @@ const HomePage = () => {
     }
     setChecked(all);
   };
-  useEffect(() => {
-    if (!checked.length || !radio.length) getAllProducts();
-  }, [checked.length, radio.length]);
 
   useEffect(() => {
-    if (checked.length || radio.length) filterProduct();
+    if (isFiltering) {
+      setPage(1);
+      filterProduct();
+      return;
+    }
+    setPage(1);
+    getAllProducts(1);
   }, [checked, radio]);
+
+  const resetFilters = () => {
+    window.location.reload();
+  };
 
   // get filtered product
   const filterProduct = async () => {
@@ -126,6 +138,7 @@ const HomePage = () => {
             {categories?.map((c) => (
               <Checkbox
                 key={c._id}
+                checked={checked.includes(c._id)}
                 onChange={(e) => handleFilter(e.target.checked, c._id)}
               >
                 {c.name}
@@ -135,10 +148,17 @@ const HomePage = () => {
           {/* price filter */}
           <h4 className="text-center mt-4">Filter By Price</h4>
           <div className="d-flex flex-column">
-            <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+            <Radio.Group
+              onChange={(e) => {
+                const selected = Prices[e.target.value];
+                setSelectedPrice(e.target.value);
+                setRadio(selected?.array || []);
+              }}
+              value={selectedPrice}
+            >
               {Prices?.map((p, index) => (
-                <div key={`price-filter-${index}-${p.name}`}>
-                  <Radio value={p.array}>{p.name}</Radio>
+                <div key={p._id ?? `price-${index}`}>
+                  <Radio value={index}>{p.name}</Radio>
                 </div>
               ))}
             </Radio.Group>
@@ -146,7 +166,7 @@ const HomePage = () => {
           <div className="d-flex flex-column">
             <button
               className="btn btn-danger"
-              onClick={() => window.location.reload()}
+              onClick={resetFilters}
             >
               RESET FILTERS
             </button>
@@ -201,7 +221,7 @@ const HomePage = () => {
             ))}
           </div>
           <div className="m-2 p-3">
-            {products && products.length < total && (
+            {!isFiltering && products && products.length < total && (
               <button
                 className="btn loadmore"
                 onClick={(e) => {
